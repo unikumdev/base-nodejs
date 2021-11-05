@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "incremental": true,
+    "noEmitOnError": false,
+    "outDir": "./dist",
+    "pretty": false,
+    "removeComments": true,
+    "sourceMap": false
+  },
+  "exclude": [
+    "./src/**/__mocks__/**",
+    "./src/**/__tests__/**",
+    "./build**/**/*",
+    "./dist**/**/*",
+    "./jest.config.ts",
+    "./coverage/**/*"
+  ],
+  "extends": "./tsconfig.json"
+}

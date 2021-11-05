@@ -1,0 +1,14 @@
+import { Jest } from '@unikum/base-nodejs/dist/src'
+import { Config } from '@unikum/base-nodejs/dist/src/jest/base'
+
+export default {
+  ...Jest.base.getBase(),
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
+    },
+  },
+} as Config.InitialOptions

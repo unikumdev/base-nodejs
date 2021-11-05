@@ -1,0 +1,8 @@
+.husky/**/*
+internals/**/*
+src/**/*
+.eslintignore
+.eslintrc.js
+.prettierrc.js
+jest.config.ts
+jest.resolver.cjs

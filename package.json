@@ -1,0 +1,79 @@
+{
+  "name": "@unikum/base-nodejs",
+  "version": "0.1.1",
+  "description": "base necessities for a nodejs typescript project",
+  "publishConfig": {
+    "registry": "https://nexus.unikum.us/repository/unikum-npm"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "main": "./dist/src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "lint": "eslint . --fix",
+    "prepare:release": "concurrently 'npm run test:coverage' 'npm run lint' 'npm run build'",
+    "setup:project": "ts-node ./internals/setup-project.ts",
+    "release": "standard-version",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch-coverage": "jest --coverage --watch",
+    "test:watch": "jest --watchAll",
+    "prepare": "husky install && ts-patch install -s"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@swc/core": "^1.2.118",
+    "@swc/helpers": "^0.2.14",
+    "@swc/jest": "^0.2.11",
+    "@tsconfig/node16": "^1.0.2",
+    "@types/eslint": "^8.2.1",
+    "@types/jest": "^27.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "concurrently": "^6.4.0",
+    "enhanced-resolve": "^5.8.3",
+    "eslint": "^8.4.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest": "^25.3.0",
+    "fs-extra": "^10.0.0",
+    "husky": "^7.0.4",
+    "jest": "^27.4.3",
+    "prettier": "^2.5.1",
+    "standard-version": "^9.3.2",
+    "tmp-promise": "^3.0.3",
+    "ts-node": "^10.4.0",
+    "ts-patch": "^2.0.1",
+    "tsconfig-paths": "^3.12.0",
+    "typescript": "^4.5.2",
+    "typescript-transform-paths": "^3.3.1"
+  },
+  "peerDependencies": {
+    "@swc/core": "^1.2.118",
+    "@swc/helpers": "^0.2.14",
+    "@swc/jest": "^0.2.11",
+    "@tsconfig/node16": "^1.0.2",
+    "eslint": "^8.4.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest": "^25.3.0",
+    "jest": "^27.4.3",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.4.0",
+    "tsconfig-paths": "^3.12.0",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "import-from": "^4.0.0",
+    "merge-anything": "^4.0.2",
+    "tslib": "^2.3.1"
+  }
+}

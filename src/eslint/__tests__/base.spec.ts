@@ -1,0 +1,220 @@
+import { join } from 'path'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { ESLint } from 'eslint'
+
+import * as theModule from '@this/src/eslint/base'
+
+const paths = {
+  dir: {
+    fixtures: join(__dirname, 'fixtures'),
+    root: join(__dirname, '../../..'),
+  },
+}
+
+describe('eslint base', () => {
+  const pathFileTSConfigValid = join(paths.dir.root, 'tsconfig.json')
+  const filterConfigResults = (
+    x:
+      | ReturnType<typeof theModule['getBase']>
+      | ReturnType<typeof theModule['getBaseJest']>
+  ) => {
+    // eslint-disable-next-line no-param-reassign
+    x.parserOptions.project = x.parserOptions.project.filter(
+      (y) =>
+        // this is local computer path and should not be included in test
+        !y.endsWith('tsconfig.json')
+    )
+
+    return x
+  }
+
+  describe('getBase', () => {
+    it('returns config', () => {
+      expect(
+        filterConfigResults(
+          theModule.getBase({ pathFileTSConfig: pathFileTSConfigValid })
+        )
+      ).toMatchInlineSnapshot(`
+        Object {
+          "env": Object {
+            "es2021": true,
+            "node": true,
+          },
+          "extends": Array [
+            "eslint-config-airbnb-base",
+            "eslint-config-airbnb-typescript/base",
+            "plugin:@typescript-eslint/recommended",
+            "plugin:@typescript-eslint/recommended-requiring-type-checking",
+            "prettier",
+          ],
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": Object {
+            "extraFileExtensions": Array [
+              ".mjs",
+            ],
+            "project": Array [
+              "**/*.js",
+              "**/*.ts",
+            ],
+          },
+          "plugins": Array [
+            "@typescript-eslint",
+          ],
+          "root": true,
+          "rules": Object {
+            "@typescript-eslint/explicit-module-boundary-types": "off",
+            "@typescript-eslint/no-explicit-any": "off",
+            "@typescript-eslint/no-unsafe-assignment": "off",
+            "@typescript-eslint/no-unsafe-call": "off",
+            "@typescript-eslint/no-unsafe-member-access": "off",
+            "@typescript-eslint/no-unsafe-return": "off",
+            "@typescript-eslint/no-unused-vars": "off",
+            "@typescript-eslint/no-var-requires": "off",
+            "@typescript-eslint/unbound-method": "off",
+            "arrow-body-style": Array [
+              "error",
+              "as-needed",
+            ],
+            "block-spacing": "error",
+            "comma-dangle": Array [
+              "error",
+              Object {
+                "arrays": "only-multiline",
+                "exports": "only-multiline",
+                "functions": "only-multiline",
+                "imports": "only-multiline",
+                "objects": "only-multiline",
+              },
+            ],
+            "eol-last": "error",
+            "import/prefer-default-export": "off",
+            "no-multi-spaces": "error",
+            "no-multiple-empty-lines": Array [
+              "error",
+              Object {
+                "max": 1,
+                "maxEOF": 0,
+              },
+            ],
+            "no-plusplus": "off",
+            "no-unused-vars": "error",
+            "prefer-arrow-callback": "error",
+            "quotes": Array [
+              "error",
+              "single",
+            ],
+            "semi": Array [
+              "error",
+              "never",
+            ],
+          },
+        }
+      `)
+    })
+  })
+
+  describe('getBaseJest', () => {
+    it('returns config', () => {
+      expect(
+        filterConfigResults(
+          theModule.getBaseJest({ pathFileTSConfig: pathFileTSConfigValid })
+        )
+      ).toMatchInlineSnapshot(`
+        Object {
+          "env": Object {
+            "es2021": true,
+            "jest": true,
+            "jest/globals": true,
+            "node": true,
+          },
+          "extends": Array [
+            "eslint-config-airbnb-base",
+            "eslint-config-airbnb-typescript/base",
+            "plugin:@typescript-eslint/recommended",
+            "plugin:@typescript-eslint/recommended-requiring-type-checking",
+            "prettier",
+            "plugin:jest/recommended",
+          ],
+          "parser": "@typescript-eslint/parser",
+          "parserOptions": Object {
+            "extraFileExtensions": Array [
+              ".mjs",
+            ],
+            "project": Array [
+              "**/*.js",
+              "**/*.ts",
+            ],
+          },
+          "plugins": Array [
+            "@typescript-eslint",
+          ],
+          "root": true,
+          "rules": Object {
+            "@typescript-eslint/explicit-module-boundary-types": "off",
+            "@typescript-eslint/no-explicit-any": "off",
+            "@typescript-eslint/no-unsafe-assignment": "off",
+            "@typescript-eslint/no-unsafe-call": "off",
+            "@typescript-eslint/no-unsafe-member-access": "off",
+            "@typescript-eslint/no-unsafe-return": "off",
+            "@typescript-eslint/no-unused-vars": "off",
+            "@typescript-eslint/no-var-requires": "off",
+            "@typescript-eslint/unbound-method": "off",
+            "arrow-body-style": Array [
+              "error",
+              "as-needed",
+            ],
+            "block-spacing": "error",
+            "comma-dangle": Array [
+              "error",
+              Object {
+                "arrays": "only-multiline",
+                "exports": "only-multiline",
+                "functions": "only-multiline",
+                "imports": "only-multiline",
+                "objects": "only-multiline",
+              },
+            ],
+            "eol-last": "error",
+            "import/prefer-default-export": "off",
+            "no-multi-spaces": "error",
+            "no-multiple-empty-lines": Array [
+              "error",
+              Object {
+                "max": 1,
+                "maxEOF": 0,
+              },
+            ],
+            "no-plusplus": "off",
+            "no-unused-vars": "error",
+            "prefer-arrow-callback": "error",
+            "quotes": Array [
+              "error",
+              "single",
+            ],
+            "semi": Array [
+              "error",
+              "never",
+            ],
+          },
+        }
+      `)
+    })
+  })
+
+  describe('linter', () => {
+    describe('errors', () => {
+      it('when errors are present', async () => {
+        const eslint = new ESLint()
+        const results = await eslint.lintFiles([
+          join(paths.dir.fixtures, 'error/1.ts.fixture'),
+        ])
+
+        expect(results.length).toBeGreaterThan(0)
+
+        results.forEach(({ errorCount }) => {
+          expect(errorCount).toBeGreaterThan(0)
+        })
+      })
+    })
+  })
+})

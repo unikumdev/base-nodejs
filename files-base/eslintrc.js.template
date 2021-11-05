@@ -1,0 +1,8 @@
+const { join } = require('path')
+// eslint-disable-next-line import/no-extraneous-dependencies
+const { eslint: { base: { getBaseJest } } } = require('@unikum/base-nodejs')
+
+module.exports = {
+  ...getBaseJest({ pathFileTSConfig: join(__dirname, 'tsconfig.eslint.json') }),
+  ignorePatterns: ['build/**/*'],
+}

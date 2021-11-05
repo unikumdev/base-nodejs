@@ -1,0 +1,131 @@
+import { merge } from 'merge-anything'
+import type { Config } from '@jest/types'
+import type * as typeTypeScript from 'typescript'
+import type * as typeSWC from '@swc/core'
+
+import { TSConfig } from '@this/src/modules/tsconfig'
+
+export type { Config }
+
+const defaults = {
+  configs: {
+    '@swc/jest': {
+      sourceMaps: true,
+      jsc: {
+        parser: {
+          dynamicImport: true,
+          syntax: 'typescript',
+          tsx: false,
+        },
+        target: 'es2021',
+        externalHelpers: true,
+      },
+      module: {
+        type: 'es6',
+      },
+    } as typeSWC.Config,
+  },
+
+  moduleNameMapper: {
+    '\\.(css|less|scss|sss|styl|sass)$':
+      '<rootDir>/node_modules/identity-obj-proxy',
+    // ESM needs a `.js` file extension
+    '^(\\.{1,2}/.*)\\.js$': '$1',
+  },
+}
+
+const getSWCPaths = <
+  T1 extends {
+    readonly paths?: typeTypeScript.MapLike<string[]>
+    readonly pathDirRoot: string
+  }
+>(
+  options: T1
+) => {
+  if (options.paths) {
+    Object.keys(options.paths).forEach((k) => {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, no-param-reassign
+      options.paths![k] = options.paths![k].reduce((acc, x) => {
+        if (x.startsWith('./')) {
+          acc.push(x.replace('./', `${options.pathDirRoot}/`))
+        } else {
+          acc.push(x)
+        }
+
+        return acc
+      }, [] as string[])
+    })
+  }
+
+  return options.paths
+}
+
+export const getBase = ({
+  pathDirRoot,
+  pathFileTSConfig,
+}: {
+  readonly pathDirRoot?: string
+
+  readonly pathFileTSConfig?: string
+} = {}): Config.InitialOptions => {
+  const shouldReadTSConfig = Boolean(pathFileTSConfig && pathDirRoot)
+  const contenFileTSConfig: {
+    readonly compilerOptions?: typeTypeScript.CompilerOptions
+  } = shouldReadTSConfig
+    ? // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      TSConfig.readTSConfig({ pathFile: pathFileTSConfig! })
+    : {}
+
+  return {
+    rootDir: pathDirRoot,
+    moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+    coverageReporters: ['html', 'lcov'],
+    extensionsToTreatAsEsm: ['.ts', '.tsx'],
+    moduleNameMapper: {
+      ...defaults.moduleNameMapper,
+    },
+    testEnvironment: 'node',
+    transform: {
+      '^.+\\.(t|j)sx?$': [
+        '@swc/jest',
+        merge(defaults.configs['@swc/jest'], {
+          jsc: {
+            baseUrl: contenFileTSConfig.compilerOptions?.baseUrl || undefined,
+            paths:
+              pathDirRoot && contenFileTSConfig.compilerOptions?.paths
+                ? getSWCPaths({
+                    pathDirRoot,
+                    paths: contenFileTSConfig.compilerOptions.paths,
+                  })
+                : undefined,
+            parser: {
+              decorators:
+                contenFileTSConfig.compilerOptions?.experimentalDecorators ||
+                false,
+              tsx:
+                /* istanbul ignore next */
+                (contenFileTSConfig.compilerOptions?.jsx && true) ||
+                (
+                  defaults.configs['@swc/jest'].jsc
+                    ?.parser as typeSWC.TsParserConfig
+                ).tsx,
+            } as typeSWC.TsParserConfig,
+            transform: {
+              legacyDecorator:
+                contenFileTSConfig.compilerOptions?.experimentalDecorators ||
+                false,
+              decoratorMetadata:
+                contenFileTSConfig.compilerOptions?.emitDecoratorMetadata ||
+                false,
+            },
+            target:
+              contenFileTSConfig.compilerOptions?.target ||
+              defaults.configs['@swc/jest'].jsc?.target,
+          },
+          // needed for snapthots, user may not override this
+          sourceMaps: true,
+        } as Partial<typeSWC.Config> as any),
+      ],
+    },
+  }
+}

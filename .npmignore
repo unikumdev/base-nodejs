@@ -6,3 +6,4 @@ src/**/*
 .prettierrc.js
 jest.config.ts
 jest.resolver.cjs
+**.tgz

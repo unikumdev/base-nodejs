@@ -23,12 +23,14 @@ const defaults = {
     },
     moduleNameMapper: {
         '\\.(css|less|scss|sss|styl|sass)$': '<rootDir>/node_modules/identity-obj-proxy',
+        // ESM needs a `.js` file extension
         '^(\\.{1,2}/.*)\\.js$': '$1',
     },
 };
 const getSWCPaths = (options) => {
     if (options.paths) {
         Object.keys(options.paths).forEach((k) => {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, no-param-reassign
             options.paths[k] = options.paths[k].reduce((acc, x) => {
                 if (x.startsWith('./')) {
                     acc.push(x.replace('./', `${options.pathDirRoot}/`));
@@ -45,7 +47,7 @@ const getSWCPaths = (options) => {
 const getBase = ({ pathDirRoot, pathFileTSConfig, } = {}) => {
     const shouldReadTSConfig = Boolean(pathFileTSConfig && pathDirRoot);
     const contenFileTSConfig = shouldReadTSConfig
-        ?
+        ? // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             tsconfig_1.TSConfig.readTSConfig({ pathFile: pathFileTSConfig })
         : {};
     return {
@@ -72,7 +74,9 @@ const getBase = ({ pathDirRoot, pathFileTSConfig, } = {}) => {
                         parser: {
                             decorators: contenFileTSConfig.compilerOptions?.experimentalDecorators ||
                                 false,
-                            tsx: (contenFileTSConfig.compilerOptions?.jsx && true) ||
+                            tsx: 
+                            /* istanbul ignore next */
+                            (contenFileTSConfig.compilerOptions?.jsx && true) ||
                                 defaults.configs['@swc/jest'].jsc
                                     ?.parser.tsx,
                         },
@@ -85,6 +89,7 @@ const getBase = ({ pathDirRoot, pathFileTSConfig, } = {}) => {
                         target: contenFileTSConfig.compilerOptions?.target ||
                             defaults.configs['@swc/jest'].jsc?.target,
                     },
+                    // needed for snapthots, user may not override this
                     sourceMaps: true,
                 }),
             ],

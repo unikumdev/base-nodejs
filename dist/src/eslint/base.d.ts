@@ -1,4 +1,4 @@
-export declare const getBase: ({ pathFileTSConfig }: {
+export declare const getBase: ({ pathFileTSConfig, }: {
     readonly pathFileTSConfig: string;
 }) => {
     env: {
@@ -40,6 +40,7 @@ export declare const getBase: ({ pathFileTSConfig }: {
             maxEOF: number;
         })[];
         'no-plusplus': string;
+        'no-restricted-syntax': string;
         'no-unused-vars': string;
         'prefer-arrow-callback': string;
         quotes: string[];
@@ -88,6 +89,7 @@ export declare const getBaseJest: (options: Parameters<typeof getBase>[0]) => {
             maxEOF: number;
         })[];
         'no-plusplus': string;
+        'no-restricted-syntax': string;
         'no-unused-vars': string;
         'prefer-arrow-callback': string;
         quotes: string[];

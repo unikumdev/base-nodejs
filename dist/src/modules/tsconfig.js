@@ -27,4 +27,6 @@ class TSConfig {
     }
 }
 exports.TSConfig = TSConfig;
-TSConfig.readTSConfig = (x) => (0, typescript_1.parseConfigFileTextToJson)('', JSON.stringify(TSConfig.readTSConfigRecursive(x), undefined, 2)).config;
+TSConfig.readTSConfig = (x) => (0, typescript_1.parseConfigFileTextToJson)(
+// eslint-disable-next-line
+'' /*'tsconfig.json'*/, JSON.stringify(TSConfig.readTSConfigRecursive(x), undefined, 2)).config;

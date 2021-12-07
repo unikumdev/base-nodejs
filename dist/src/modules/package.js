@@ -14,13 +14,16 @@ class Package {
             ...contentParsed.dependencies,
         };
         contentParsed.peerDependencies = contentParsed.peerDependencies || {};
+        // eslint-disable-next-line no-console
         console.info('Syncing peerDependency along with dependency and devDependency...');
+        // eslint-disable-next-line no-restricted-syntax, guard-for-in
         for (const k in allDependencies) {
             const valuePeerDependency = contentParsed.peerDependencies[k];
             if (valuePeerDependency) {
                 const valueNormalOrDevDependency = allDependencies[k];
                 if (valuePeerDependency !== valueNormalOrDevDependency) {
                     contentParsed.peerDependencies[k] = allDependencies[k];
+                    // eslint-disable-next-line no-console
                     console.info(`updated: ${valuePeerDependency} => ${valueNormalOrDevDependency}`);
                 }
             }

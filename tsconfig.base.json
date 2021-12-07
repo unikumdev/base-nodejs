@@ -6,7 +6,7 @@
     "baseUrl": ".",
     "declaration": true,
     "importHelpers": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "moduleResolution": "Node",
     "noImplicitReturns": true,
     "noUnusedLocals": true,

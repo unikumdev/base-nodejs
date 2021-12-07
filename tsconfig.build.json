@@ -6,7 +6,7 @@
     "noEmitOnError": false,
     "outDir": "./dist",
     "pretty": false,
-    "removeComments": true,
+    "removeComments": false,
     "sourceMap": false
   },
   "exclude": [

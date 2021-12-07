@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getBaseJest = exports.getBase = void 0;
-const getBase = ({ pathFileTSConfig }) => ({
+const getBase = ({ pathFileTSConfig, }) => ({
     env: {
         es2021: true,
         node: true,
@@ -53,6 +53,7 @@ const getBase = ({ pathFileTSConfig }) => ({
             },
         ],
         'no-plusplus': 'off',
+        'no-restricted-syntax': 'off',
         'no-unused-vars': 'error',
         'prefer-arrow-callback': 'error',
         quotes: ['error', 'single'],
@@ -60,8 +61,11 @@ const getBase = ({ pathFileTSConfig }) => ({
     },
 });
 exports.getBase = getBase;
+/* istanbul ignore next */
 const getBaseJest = (options) => {
+    /* istanbul ignore next */
     const baseConfig = (0, exports.getBase)(options);
+    /* istanbul ignore next */
     return {
         ...baseConfig,
         env: {

@@ -97,6 +97,7 @@ describe('eslint base', () => {
               },
             ],
             "no-plusplus": "off",
+            "no-restricted-syntax": "off",
             "no-unused-vars": "error",
             "prefer-arrow-callback": "error",
             "quotes": Array [
@@ -185,6 +186,7 @@ describe('eslint base', () => {
               },
             ],
             "no-plusplus": "off",
+            "no-restricted-syntax": "off",
             "no-unused-vars": "error",
             "prefer-arrow-callback": "error",
             "quotes": Array [

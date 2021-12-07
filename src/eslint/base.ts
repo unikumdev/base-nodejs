@@ -1,4 +1,8 @@
-export const getBase = ({ pathFileTSConfig }: { readonly pathFileTSConfig: string }) => ({
+export const getBase = ({
+  pathFileTSConfig,
+}: {
+  readonly pathFileTSConfig: string
+}) => ({
   env: {
     es2021: true,
     node: true,
@@ -52,6 +56,7 @@ export const getBase = ({ pathFileTSConfig }: { readonly pathFileTSConfig: strin
       },
     ],
     'no-plusplus': 'off',
+    'no-restricted-syntax': 'off',
     'no-unused-vars': 'error',
     'prefer-arrow-callback': 'error',
     quotes: ['error', 'single'],

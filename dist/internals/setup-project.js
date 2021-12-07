@@ -10,4 +10,5 @@ class SetupProject {
         });
     }
 }
+// eslint-disable-next-line no-console
 SetupProject.setup().catch(console.error);

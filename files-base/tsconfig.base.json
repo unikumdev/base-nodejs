@@ -14,8 +14,13 @@
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "plugins": [
-      { "transform": "typescript-transform-paths", "useRootDirs": true },
       {
+        "exclude": ["**/node_modules/**"],
+        "transform": "typescript-transform-paths",
+        "useRootDirs": true
+      },
+      {
+        "exclude": ["**/node_modules/**"],
         "transform": "typescript-transform-paths",
         "useRootDirs": true,
         "afterDeclarations": true

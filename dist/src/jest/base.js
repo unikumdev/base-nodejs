@@ -52,7 +52,7 @@ const getBase = ({ pathDirRoot, pathFileTSConfig, } = {}) => {
         : {};
     return {
         rootDir: pathDirRoot,
-        moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+        moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
         coverageReporters: ['html', 'lcov'],
         extensionsToTreatAsEsm: ['.ts', '.tsx'],
         moduleNameMapper: {

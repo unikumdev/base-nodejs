@@ -37,6 +37,8 @@ describe('jest base', () => {
               "tsx",
               "js",
               "jsx",
+              "json",
+              "node",
             ],
             "moduleNameMapper": Object {
               "\\\\.(css|less|scss|sss|styl|sass)$": "<rootDir>/node_modules/identity-obj-proxy",
@@ -100,6 +102,8 @@ describe('jest base', () => {
                 "tsx",
                 "js",
                 "jsx",
+                "json",
+                "node",
               ],
               "moduleNameMapper": Object {
                 "\\\\.(css|less|scss|sss|styl|sass)$": "<rootDir>/node_modules/identity-obj-proxy",
@@ -168,6 +172,8 @@ describe('jest base', () => {
                 "tsx",
                 "js",
                 "jsx",
+                "json",
+                "node",
               ],
               "moduleNameMapper": Object {
                 "\\\\.(css|less|scss|sss|styl|sass)$": "<rootDir>/node_modules/identity-obj-proxy",

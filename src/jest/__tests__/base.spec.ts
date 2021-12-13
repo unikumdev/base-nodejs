@@ -25,7 +25,7 @@ describe('jest base', () => {
         expect(filterConfigResults(theModule.getBase())).toMatchInlineSnapshot(`
           Object {
             "coverageReporters": Array [
-              "html",
+              "html-spa",
               "lcov",
             ],
             "extensionsToTreatAsEsm": Array [
@@ -90,7 +90,7 @@ describe('jest base', () => {
           ).toMatchInlineSnapshot(`
             Object {
               "coverageReporters": Array [
-                "html",
+                "html-spa",
                 "lcov",
               ],
               "extensionsToTreatAsEsm": Array [
@@ -160,7 +160,7 @@ describe('jest base', () => {
           expect(filterConfigResults(result)).toMatchInlineSnapshot(`
             Object {
               "coverageReporters": Array [
-                "html",
+                "html-spa",
                 "lcov",
               ],
               "extensionsToTreatAsEsm": Array [

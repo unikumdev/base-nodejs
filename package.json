@@ -1,6 +1,6 @@
 {
   "name": "@unikum/base-nodejs",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "base necessities for a nodejs typescript project",
   "publishConfig": {
     "registry": "https://nexus.unikum.us/repository/unikum-npm"
@@ -27,9 +27,9 @@
   "license": "ISC",
   "devDependencies": {
     "@swc/cli": "^0.1.54",
-    "@swc/core": "^1.2.119",
+    "@swc/core": "^1.2.120",
     "@swc/helpers": "^0.3.2",
-    "@swc/jest": "^0.2.14",
+    "@swc/jest": "^0.2.15",
     "@tsconfig/node16": "^1.0.2",
     "@types/eslint": "^8.2.1",
     "@types/jest": "^27.0.3",
@@ -52,9 +52,9 @@
     "typescript": "^4.5.3"
   },
   "peerDependencies": {
-    "@swc/core": "^1.2.119",
+    "@swc/core": "^1.2.120",
     "@swc/helpers": "^0.3.2",
-    "@swc/jest": "^0.2.14",
+    "@swc/jest": "^0.2.15",
     "@tsconfig/node16": "^1.0.2",
     "eslint": "^8.4.1",
     "eslint-config-airbnb-base": "^15.0.0",

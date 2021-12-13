@@ -29,7 +29,10 @@
   },
   "exclude": ["./build**/**/*", "./dist**/**/*", "./coverage/**/*"],
   "ts-node": {
-    "require": ["tsconfig-paths/register"],
+    "require": [
+      "tsconfig-paths/register",
+      "typescript-transform-paths/register"
+    ],
     "transpileOnly": true,
     "transpiler": "ts-node/transpilers/swc-experimental"
   }

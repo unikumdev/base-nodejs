@@ -1,8 +1,8 @@
-import type { Config } from './src/jest/base'
+import type { Config } from '@this/src/jest/base'
 
 export default async () => {
   const { join } = await import('path')
-  const { getBase } = await import('./src/jest/base')
+  const { getBase } = await import('@this/src/jest/base')
 
   return {
     ...getBase({

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getBaseJest = exports.getBase = void 0;
+exports.getBaseESLint = exports.getBase = void 0;
 const getBase = ({ pathFileTSConfig, }) => ({
     env: {
         es2021: true,
@@ -62,7 +62,7 @@ const getBase = ({ pathFileTSConfig, }) => ({
 });
 exports.getBase = getBase;
 /* istanbul ignore next */
-const getBaseJest = (options) => {
+const getBaseESLint = (options) => {
     /* istanbul ignore next */
     const baseConfig = (0, exports.getBase)(options);
     /* istanbul ignore next */
@@ -76,4 +76,4 @@ const getBaseJest = (options) => {
         extends: [...baseConfig.extends, 'plugin:jest/recommended'],
     };
 };
-exports.getBaseJest = getBaseJest;
+exports.getBaseESLint = getBaseESLint;

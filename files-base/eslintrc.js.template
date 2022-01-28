@@ -2,7 +2,7 @@ const { join } = require('path')
 // eslint-disable-next-line import/no-extraneous-dependencies
 const {
   eslint: {
-    base: { getBaseJest },
+    base: { getBaseESLint },
   },
 } = require('@unikum/base-nodejs')
 

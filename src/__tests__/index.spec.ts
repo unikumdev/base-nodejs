@@ -12,7 +12,7 @@ describe('index', () => {
         "eslint": Object {
           "base": Object {
             "getBase": [Function],
-            "getBaseJest": [Function],
+            "getBaseESLint": [Function],
           },
         },
       }

@@ -16,7 +16,7 @@ describe('eslint base', () => {
   const filterConfigResults = (
     x:
       | ReturnType<typeof theModule['getBase']>
-      | ReturnType<typeof theModule['getBaseJest']>
+      | ReturnType<typeof theModule['getBaseESLint']>
   ) => {
     // eslint-disable-next-line no-param-reassign
     x.parserOptions.project = x.parserOptions.project.filter(
@@ -118,7 +118,7 @@ describe('eslint base', () => {
     it('returns config', () => {
       expect(
         filterConfigResults(
-          theModule.getBaseJest({ pathFileTSConfig: pathFileTSConfigValid })
+          theModule.getBaseESLint({ pathFileTSConfig: pathFileTSConfigValid })
         )
       ).toMatchInlineSnapshot(`
         Object {

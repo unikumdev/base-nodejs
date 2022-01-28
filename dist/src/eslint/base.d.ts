@@ -47,7 +47,7 @@ export declare const getBase: ({ pathFileTSConfig, }: {
         semi: string[];
     };
 };
-export declare const getBaseJest: (options: Parameters<typeof getBase>[0]) => {
+export declare const getBaseESLint: (options: Parameters<typeof getBase>[0]) => {
     env: {
         jest: boolean;
         'jest/globals': boolean;

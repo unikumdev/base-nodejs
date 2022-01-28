@@ -65,7 +65,7 @@ export const getBase = ({
 })
 
 /* istanbul ignore next */
-export const getBaseJest = (options: Parameters<typeof getBase>[0]) => {
+export const getBaseESLint = (options: Parameters<typeof getBase>[0]) => {
   /* istanbul ignore next */
   const baseConfig = getBase(options)
 

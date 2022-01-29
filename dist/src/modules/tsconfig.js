@@ -5,7 +5,7 @@ const tslib_1 = require("tslib");
 const typescript_1 = require("typescript");
 const merge_anything_1 = require("merge-anything");
 const import_from_1 = (0, tslib_1.__importDefault)(require("import-from"));
-const path_1 = require("path");
+const node_path_1 = require("node:path");
 const config_1 = (0, tslib_1.__importDefault)(require("../config"));
 class TSConfig {
     static readTSConfigRecursive({ pathFile }) {
@@ -16,7 +16,7 @@ class TSConfig {
         if (accumulated.extends) {
             accumulated = (0, merge_anything_1.merge)(TSConfig.readTSConfigRecursive({
                 pathFile: accumulated.extends.startsWith('./')
-                    ? (0, path_1.resolve)((0, path_1.dirname)(pathFile), accumulated.extends)
+                    ? (0, node_path_1.resolve)((0, node_path_1.dirname)(pathFile), accumulated.extends)
                     : accumulated.extends,
             }), accumulated);
         }

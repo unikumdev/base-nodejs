@@ -24,6 +24,10 @@ describe('jest base', () => {
       it('absent', () => {
         expect(filterConfigResults(theModule.getBase())).toMatchInlineSnapshot(`
           Object {
+            "coveragePathIgnorePatterns": Array [
+              "<rootDir>/build/",
+              "<rootDir>/dist/",
+            ],
             "coverageReporters": Array [
               "html-spa",
               "lcov",
@@ -41,11 +45,15 @@ describe('jest base', () => {
               "node",
             ],
             "moduleNameMapper": Object {
+              "@this/(.*)": "<rootDir>",
               "\\\\.(css|less|scss|sss|styl|sass)$": "<rootDir>/node_modules/identity-obj-proxy",
               "^(\\\\.{1,2}/.*)\\\\.js$": "$1",
             },
             "rootDir": undefined,
             "testEnvironment": "node",
+            "testMatch": Array [
+              "**/__tests__/**/*.spec.[t]s?(x)",
+            ],
             "transform": Object {
               "^.+\\\\.(t|j)sx?$": Array [
                 "@swc/jest",
@@ -64,6 +72,9 @@ describe('jest base', () => {
                     "transform": Object {
                       "decoratorMetadata": false,
                       "legacyDecorator": false,
+                      "react": Object {
+                        "runtime": "automatic",
+                      },
                     },
                   },
                   "module": Object {
@@ -89,6 +100,10 @@ describe('jest base', () => {
             )
           ).toMatchInlineSnapshot(`
             Object {
+              "coveragePathIgnorePatterns": Array [
+                "<rootDir>/build/",
+                "<rootDir>/dist/",
+              ],
               "coverageReporters": Array [
                 "html-spa",
                 "lcov",
@@ -106,11 +121,15 @@ describe('jest base', () => {
                 "node",
               ],
               "moduleNameMapper": Object {
+                "@this/(.*)": "<rootDir>",
                 "\\\\.(css|less|scss|sss|styl|sass)$": "<rootDir>/node_modules/identity-obj-proxy",
                 "^(\\\\.{1,2}/.*)\\\\.js$": "$1",
               },
               "rootDir": undefined,
               "testEnvironment": "node",
+              "testMatch": Array [
+                "**/__tests__/**/*.spec.[t]s?(x)",
+              ],
               "transform": Object {
                 "^.+\\\\.(t|j)sx?$": Array [
                   "@swc/jest",
@@ -129,6 +148,9 @@ describe('jest base', () => {
                       "transform": Object {
                         "decoratorMetadata": false,
                         "legacyDecorator": false,
+                        "react": Object {
+                          "runtime": "automatic",
+                        },
                       },
                     },
                     "module": Object {
@@ -159,6 +181,10 @@ describe('jest base', () => {
 
           expect(filterConfigResults(result)).toMatchInlineSnapshot(`
             Object {
+              "coveragePathIgnorePatterns": Array [
+                "<rootDir>/build/",
+                "<rootDir>/dist/",
+              ],
               "coverageReporters": Array [
                 "html-spa",
                 "lcov",
@@ -176,11 +202,15 @@ describe('jest base', () => {
                 "node",
               ],
               "moduleNameMapper": Object {
+                "@this/(.*)": "<rootDir>",
                 "\\\\.(css|less|scss|sss|styl|sass)$": "<rootDir>/node_modules/identity-obj-proxy",
                 "^(\\\\.{1,2}/.*)\\\\.js$": "$1",
               },
               "rootDir": undefined,
               "testEnvironment": "node",
+              "testMatch": Array [
+                "**/__tests__/**/*.spec.[t]s?(x)",
+              ],
               "transform": Object {
                 "^.+\\\\.(t|j)sx?$": Array [
                   "@swc/jest",
@@ -199,6 +229,9 @@ describe('jest base', () => {
                       "transform": Object {
                         "decoratorMetadata": false,
                         "legacyDecorator": false,
+                        "react": Object {
+                          "runtime": "automatic",
+                        },
                       },
                     },
                     "module": Object {

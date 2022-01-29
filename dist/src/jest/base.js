@@ -8,13 +8,18 @@ const defaults = {
         '@swc/jest': {
             sourceMaps: true,
             jsc: {
+                externalHelpers: true,
                 parser: {
                     dynamicImport: true,
                     syntax: 'typescript',
                     tsx: false,
                 },
                 target: 'es2021',
-                externalHelpers: true,
+                transform: {
+                    react: {
+                        runtime: 'automatic',
+                    },
+                },
             },
             module: {
                 type: 'es6',
@@ -25,6 +30,9 @@ const defaults = {
         '\\.(css|less|scss|sss|styl|sass)$': '<rootDir>/node_modules/identity-obj-proxy',
         // ESM needs a `.js` file extension
         '^(\\.{1,2}/.*)\\.js$': '$1',
+        // @TODO remove this when SWC has fixed https://github.com/swc-project/swc/issues/2753
+        // right now the jsc.paths does nothing
+        '@this/(.*)': '<rootDir>',
     },
 };
 const getSWCPaths = (options) => {
@@ -51,14 +59,16 @@ const getBase = ({ pathDirRoot, pathFileTSConfig, } = {}) => {
             tsconfig_1.TSConfig.readTSConfig({ pathFile: pathFileTSConfig })
         : {};
     return {
-        rootDir: pathDirRoot,
-        moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
         coverageReporters: ['html-spa', 'lcov'],
+        coveragePathIgnorePatterns: ['<rootDir>/build/', '<rootDir>/dist/'],
         extensionsToTreatAsEsm: ['.ts', '.tsx'],
+        moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
         moduleNameMapper: {
             ...defaults.moduleNameMapper,
         },
+        rootDir: pathDirRoot,
         testEnvironment: 'node',
+        testMatch: ['**/__tests__/**/*.spec.[t]s?(x)'],
         transform: {
             '^.+\\.(t|j)sx?$': [
                 '@swc/jest',
@@ -77,8 +87,7 @@ const getBase = ({ pathDirRoot, pathFileTSConfig, } = {}) => {
                             tsx: 
                             /* istanbul ignore next */
                             (contenFileTSConfig.compilerOptions?.jsx && true) ||
-                                defaults.configs['@swc/jest'].jsc
-                                    ?.parser.tsx,
+                                defaults.configs['@swc/jest'].jsc.parser.tsx,
                         },
                         transform: {
                             legacyDecorator: contenFileTSConfig.compilerOptions?.experimentalDecorators ||

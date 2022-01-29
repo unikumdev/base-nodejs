@@ -1,7 +1,7 @@
 import { parseConfigFileTextToJson } from 'typescript'
 import { merge } from 'merge-anything'
 import importFrom from 'import-from'
-import { dirname, resolve } from 'node:path'
+import { dirname, resolve } from 'path'
 import type * as typeTypeScript from 'typescript'
 
 import config from '@this/src/config'

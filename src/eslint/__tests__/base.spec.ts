@@ -118,7 +118,10 @@ describe('eslint base', () => {
     it('returns config', () => {
       expect(
         filterConfigResults(
-          theModule.getBaseESLint({ pathFileTSConfig: pathFileTSConfigValid })
+          theModule.getBaseESLint({
+            pathDirRoot: paths.dir.root,
+            pathFileTSConfig: pathFileTSConfigValid,
+          })
         )
       ).toMatchInlineSnapshot(`
         Object {

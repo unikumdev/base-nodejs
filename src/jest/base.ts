@@ -73,7 +73,6 @@ export const getBase = ({
   pathFileTSConfig,
 }: {
   readonly pathDirRoot?: string
-
   readonly pathFileTSConfig?: string
 } = {}): Config.InitialOptions => {
   const shouldReadTSConfig = Boolean(pathFileTSConfig && pathDirRoot)

@@ -6,7 +6,15 @@ const {
   },
 } = require('@unikum/base-nodejs')
 
+const configBase = getBaseESLint({
+  pathDirRoot: __dirname,
+  pathFileTSConfig: join(__dirname, 'tsconfig.eslint.json'),
+})
+
 module.exports = {
-  ...getBaseJest({ pathFileTSConfig: join(__dirname, 'tsconfig.eslint.json') }),
+  ...configBase,
   ignorePatterns: ['build/**/*', 'dist/**/*'],
+  rules: {
+    ...configBase.rules,
+  },
 }

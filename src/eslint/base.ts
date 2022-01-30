@@ -1,3 +1,5 @@
+import { join } from 'path'
+
 export const getBase = ({
   pathFileTSConfig,
 }: {
@@ -65,18 +67,36 @@ export const getBase = ({
 })
 
 /* istanbul ignore next */
-export const getBaseESLint = (options: Parameters<typeof getBase>[0]) => {
+export const getBaseESLint = <
+  T1 extends Parameters<typeof getBase>[0] & {
+    readonly pathDirRoot: string
+  }
+>(
+  options: T1
+) => {
   /* istanbul ignore next */
   const baseConfig = getBase(options)
 
-  /* istanbul ignore next */
-  return {
-    ...baseConfig,
-    env: {
-      ...baseConfig.env,
-      jest: true,
-      'jest/globals': true,
-    },
-    extends: [...baseConfig.extends, 'plugin:jest/recommended'],
+  // eslint-disable-next-line import/no-dynamic-require, global-require
+  const packageJSON = require(join(options.pathDirRoot, 'package.json')) as {
+    readonly devDependencies?: {
+      readonly [x: string]: string
+    }
   }
+
+  if (packageJSON.devDependencies?.jest) {
+    return {
+      ...baseConfig,
+      env: {
+        ...baseConfig.env,
+        jest: true,
+        'jest/globals': true,
+      },
+
+      extends: [...baseConfig.extends, 'plugin:jest/recommended'],
+    }
+  }
+
+  /* istanbul ignore next */
+  return baseConfig
 }

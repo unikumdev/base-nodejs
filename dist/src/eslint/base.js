@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getBaseESLint = exports.getBase = void 0;
+const path_1 = require("path");
 const getBase = ({ pathFileTSConfig, }) => ({
     env: {
         es2021: true,
@@ -65,15 +66,20 @@ exports.getBase = getBase;
 const getBaseESLint = (options) => {
     /* istanbul ignore next */
     const baseConfig = (0, exports.getBase)(options);
+    // eslint-disable-next-line import/no-dynamic-require, global-require
+    const packageJSON = require((0, path_1.join)(options.pathDirRoot, 'package.json'));
+    if (packageJSON.devDependencies?.jest) {
+        return {
+            ...baseConfig,
+            env: {
+                ...baseConfig.env,
+                jest: true,
+                'jest/globals': true,
+            },
+            extends: [...baseConfig.extends, 'plugin:jest/recommended'],
+        };
+    }
     /* istanbul ignore next */
-    return {
-        ...baseConfig,
-        env: {
-            ...baseConfig.env,
-            jest: true,
-            'jest/globals': true,
-        },
-        extends: [...baseConfig.extends, 'plugin:jest/recommended'],
-    };
+    return baseConfig;
 };
 exports.getBaseESLint = getBaseESLint;

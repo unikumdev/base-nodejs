@@ -1,12 +1,14 @@
 import { join } from 'path'
 import { getBase, Config } from '@unikum/base-nodejs/dist/src/jest/base'
 
+const configBase = getBase({
+  pathDirRoot: __dirname,
+  pathFileTSConfig: join(__dirname, 'tsconfig.json'),
+})
+
 export default () =>
   ({
-    ...getBase({
-      pathDirRoot: __dirname,
-      pathFileTSConfig: join(__dirname, 'tsconfig.json'),
-    }),
+    ...configBase,
     coverageThreshold: {
       global: {
         branches: 95,

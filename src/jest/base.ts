@@ -87,7 +87,17 @@ export const getBase = ({
     coverageReporters: ['html-spa', 'lcov'],
     coveragePathIgnorePatterns: ['<rootDir>/build/', '<rootDir>/dist/'],
     extensionsToTreatAsEsm: ['.ts', '.tsx'],
-    moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+    moduleFileExtensions: [
+      'cjs',
+      'js',
+      'json',
+      'jsx',
+      'mjs',
+      'node',
+      'ts',
+      'tsx',
+      'wasm',
+    ],
     moduleNameMapper: {
       ...defaults.moduleNameMapper,
     },

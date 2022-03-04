@@ -6,9 +6,9 @@ const tslib_1 = require("tslib");
 /**
  * https://github.com/kulshekhar/ts-jest/issues/542
  */
-const path = (0, tslib_1.__importStar)(require("path"));
+const path = tslib_1.__importStar(require("path"));
 const fs_extra_1 = require("fs-extra");
-const yargs_1 = (0, tslib_1.__importDefault)(require("yargs/yargs"));
+const yargs_1 = tslib_1.__importDefault(require("yargs/yargs"));
 const helpers_1 = require("yargs/helpers");
 class LCOVFix {
     static async fix({ pathFile, pathFileOutput, }) {

@@ -33,7 +33,7 @@
       "tsconfig-paths/register",
       "typescript-transform-paths/register"
     ],
-    "transpileOnly": true,
-    "transpiler": "ts-node/transpilers/swc-experimental"
+    "swc": true,
+    "transpileOnly": true
   }
 }

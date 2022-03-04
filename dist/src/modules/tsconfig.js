@@ -4,9 +4,9 @@ exports.TSConfig = void 0;
 const tslib_1 = require("tslib");
 const typescript_1 = require("typescript");
 const merge_anything_1 = require("merge-anything");
-const import_from_1 = (0, tslib_1.__importDefault)(require("import-from"));
+const import_from_1 = tslib_1.__importDefault(require("import-from"));
 const path_1 = require("path");
-const config_1 = (0, tslib_1.__importDefault)(require("../config"));
+const config_1 = tslib_1.__importDefault(require("../config"));
 class TSConfig {
     static readTSConfigRecursive({ pathFile }) {
         let accumulated = {

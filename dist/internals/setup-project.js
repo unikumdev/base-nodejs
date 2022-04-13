@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const package_1 = require("../src/modules/package");
-const config_1 = (0, tslib_1.__importDefault)(require("../src/config"));
+const config_1 = tslib_1.__importDefault(require("../src/config"));
 class SetupProject {
     static setup() {
         return package_1.Package.syncPeerDependencies({

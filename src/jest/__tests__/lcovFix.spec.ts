@@ -53,6 +53,7 @@ describe(TheModule.name, () => {
       const fileContentsOutput = (
         await readFile(paths.fileTempOutput)
       ).toString()
+
       expect(fileContentsOutput).toContain('SF:/')
     })
   })

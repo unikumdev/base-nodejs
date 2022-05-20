@@ -35,6 +35,7 @@ export class LCOVFix {
         )
         throw new Error('program exit(1)')
       }
+
       const pathFileResolved = path.resolve(pathFile)
 
       await access(pathFileResolved, constantsFS.R_OK)
@@ -63,6 +64,7 @@ export class LCOVFix {
         if (singleLine.startsWith('SF:') && !singleLine.startsWith('SF:/')) {
           return singleLine.replace('SF:', `SF:${pathPrefix}/`)
         }
+
         return singleLine
       })
       .join('\n')
@@ -77,6 +79,7 @@ export class LCOVFix {
 
   static async execute(options: IOptionsCLI) {
     const { pathFile, pathFileOutput } = await LCOVFix.tasks.checks(options)
+
     return LCOVFix.fix({ pathFile, pathFileOutput })
   }
 }

@@ -60,6 +60,34 @@ export const getBase = ({
     'no-plusplus': 'off',
     'no-restricted-syntax': 'off',
     'no-unused-vars': 'error',
+    'padding-line-between-statements': [
+      'error',
+      {
+        blankLine: 'always',
+        prev: [
+          'block-like',
+          'block',
+          'class',
+          'const',
+          'directive',
+          'for',
+          'function',
+          'iife',
+          'let',
+          'switch',
+          'try',
+          'var',
+          'while',
+        ],
+        next: '*',
+      },
+      {
+        blankLine: 'any',
+        prev: ['const', 'let', 'var'],
+        next: ['const', 'let', 'var'],
+      },
+      { blankLine: 'always', prev: ['case', 'default'], next: '*' },
+    ],
     'prefer-arrow-callback': 'error',
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
@@ -70,9 +98,9 @@ export const getBase = ({
 export const getBaseESLint = <
   T1 extends Parameters<typeof getBase>[0] & {
     readonly pathDirRoot: string
-  }
+  },
 >(
-  options: T1
+  options: T1,
 ) => {
   /* istanbul ignore next */
   const baseConfig = getBase(options)

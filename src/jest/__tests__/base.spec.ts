@@ -94,6 +94,7 @@ describe('jest base', () => {
       describe('pathFileTSConfig', () => {
         it('provided (fake file)', async () => {
           const { path: pathFileTSConfig, cleanup } = await file()
+
           expect(
             filterConfigResults(
               theModule.getBase({
@@ -179,6 +180,7 @@ describe('jest base', () => {
 
           // paths for the real file will be translated with local path
           const keyFirstTransform = Object.keys(result.transform || {})[0]
+
           expect(
             ((result.transform || {})[keyFirstTransform][1] as any).jsc.paths
           ).toBeDefined()

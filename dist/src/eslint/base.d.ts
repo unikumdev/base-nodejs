@@ -42,6 +42,15 @@ export declare const getBase: ({ pathFileTSConfig, }: {
         'no-plusplus': string;
         'no-restricted-syntax': string;
         'no-unused-vars': string;
+        'padding-line-between-statements': (string | {
+            blankLine: string;
+            prev: string[];
+            next: string;
+        } | {
+            blankLine: string;
+            prev: string[];
+            next: string[];
+        })[];
         'prefer-arrow-callback': string;
         quotes: string[];
         semi: string[];
@@ -93,6 +102,15 @@ export declare const getBaseESLint: <T1 extends {
         'no-plusplus': string;
         'no-restricted-syntax': string;
         'no-unused-vars': string;
+        'padding-line-between-statements': (string | {
+            blankLine: string;
+            prev: string[];
+            next: string;
+        } | {
+            blankLine: string;
+            prev: string[];
+            next: string[];
+        })[];
         'prefer-arrow-callback': string;
         quotes: string[];
         semi: string[];
@@ -141,6 +159,15 @@ export declare const getBaseESLint: <T1 extends {
         'no-plusplus': string;
         'no-restricted-syntax': string;
         'no-unused-vars': string;
+        'padding-line-between-statements': (string | {
+            blankLine: string;
+            prev: string[];
+            next: string;
+        } | {
+            blankLine: string;
+            prev: string[];
+            next: string[];
+        })[];
         'prefer-arrow-callback': string;
         quotes: string[];
         semi: string[];

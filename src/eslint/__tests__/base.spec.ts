@@ -295,7 +295,12 @@ describe('eslint base', () => {
             "react/no-children-prop": "off",
             "react/no-unused-prop-types": "error",
             "react/no-unused-state": "error",
-            "react/prefer-stateless-function": "error",
+            "react/prefer-stateless-function": Array [
+              "error",
+              Object {
+                "ignorePureComponents": true,
+              },
+            ],
             "react/self-closing-comp": "error",
             "react/sort-comp": "error",
             "react/sort-prop-types": "error",

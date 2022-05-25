@@ -1,11 +1,18 @@
-export declare const getBase: ({ pathFileTSConfig, }: {
+import type { Linter } from 'eslint';
+export declare const getBase: ({ isReact, pathFileTSConfig, }: {
+    readonly isReact?: boolean | undefined;
     readonly pathFileTSConfig: string;
 }) => {
     env: {
         es2021: boolean;
         node: boolean;
     };
-    extends: string[];
+    extends: (string | false | undefined)[];
+    settings: {
+        react: {
+            version: string;
+        };
+    };
     parser: string;
     parserOptions: {
         extraFileExtensions: string[];
@@ -13,50 +20,10 @@ export declare const getBase: ({ pathFileTSConfig, }: {
     };
     plugins: string[];
     root: boolean;
-    rules: {
-        '@typescript-eslint/explicit-module-boundary-types': string;
-        '@typescript-eslint/no-unsafe-assignment': string;
-        '@typescript-eslint/no-explicit-any': string;
-        '@typescript-eslint/no-unsafe-call': string;
-        '@typescript-eslint/no-unsafe-member-access': string;
-        '@typescript-eslint/no-unsafe-return': string;
-        '@typescript-eslint/no-unused-vars': string;
-        '@typescript-eslint/no-var-requires': string;
-        '@typescript-eslint/unbound-method': string;
-        'arrow-body-style': string[];
-        'block-spacing': string;
-        'comma-dangle': (string | {
-            arrays: string;
-            exports: string;
-            functions: string;
-            imports: string;
-            objects: string;
-        })[];
-        'eol-last': string;
-        'import/prefer-default-export': string;
-        'no-multi-spaces': string;
-        'no-multiple-empty-lines': (string | {
-            max: number;
-            maxEOF: number;
-        })[];
-        'no-plusplus': string;
-        'no-restricted-syntax': string;
-        'no-unused-vars': string;
-        'padding-line-between-statements': (string | {
-            blankLine: string;
-            prev: string[];
-            next: string;
-        } | {
-            blankLine: string;
-            prev: string[];
-            next: string[];
-        })[];
-        'prefer-arrow-callback': string;
-        quotes: string[];
-        semi: string[];
-    };
+    rules: Linter.RulesRecord;
 };
 export declare const getBaseESLint: <T1 extends {
+    readonly isReact?: boolean | undefined;
     readonly pathFileTSConfig: string;
 } & {
     readonly pathDirRoot: string;
@@ -65,7 +32,12 @@ export declare const getBaseESLint: <T1 extends {
         es2021: boolean;
         node: boolean;
     };
-    extends: string[];
+    extends: (string | false | undefined)[];
+    settings: {
+        react: {
+            version: string;
+        };
+    };
     parser: string;
     parserOptions: {
         extraFileExtensions: string[];
@@ -73,48 +45,7 @@ export declare const getBaseESLint: <T1 extends {
     };
     plugins: string[];
     root: boolean;
-    rules: {
-        '@typescript-eslint/explicit-module-boundary-types': string;
-        '@typescript-eslint/no-unsafe-assignment': string;
-        '@typescript-eslint/no-explicit-any': string;
-        '@typescript-eslint/no-unsafe-call': string;
-        '@typescript-eslint/no-unsafe-member-access': string;
-        '@typescript-eslint/no-unsafe-return': string;
-        '@typescript-eslint/no-unused-vars': string;
-        '@typescript-eslint/no-var-requires': string;
-        '@typescript-eslint/unbound-method': string;
-        'arrow-body-style': string[];
-        'block-spacing': string;
-        'comma-dangle': (string | {
-            arrays: string;
-            exports: string;
-            functions: string;
-            imports: string;
-            objects: string;
-        })[];
-        'eol-last': string;
-        'import/prefer-default-export': string;
-        'no-multi-spaces': string;
-        'no-multiple-empty-lines': (string | {
-            max: number;
-            maxEOF: number;
-        })[];
-        'no-plusplus': string;
-        'no-restricted-syntax': string;
-        'no-unused-vars': string;
-        'padding-line-between-statements': (string | {
-            blankLine: string;
-            prev: string[];
-            next: string;
-        } | {
-            blankLine: string;
-            prev: string[];
-            next: string[];
-        })[];
-        'prefer-arrow-callback': string;
-        quotes: string[];
-        semi: string[];
-    };
+    rules: Linter.RulesRecord;
 } | {
     env: {
         jest: boolean;
@@ -122,7 +53,12 @@ export declare const getBaseESLint: <T1 extends {
         es2021: boolean;
         node: boolean;
     };
-    extends: string[];
+    extends: (string | false | undefined)[];
+    settings: {
+        react: {
+            version: string;
+        };
+    };
     parser: string;
     parserOptions: {
         extraFileExtensions: string[];
@@ -130,46 +66,5 @@ export declare const getBaseESLint: <T1 extends {
     };
     plugins: string[];
     root: boolean;
-    rules: {
-        '@typescript-eslint/explicit-module-boundary-types': string;
-        '@typescript-eslint/no-unsafe-assignment': string;
-        '@typescript-eslint/no-explicit-any': string;
-        '@typescript-eslint/no-unsafe-call': string;
-        '@typescript-eslint/no-unsafe-member-access': string;
-        '@typescript-eslint/no-unsafe-return': string;
-        '@typescript-eslint/no-unused-vars': string;
-        '@typescript-eslint/no-var-requires': string;
-        '@typescript-eslint/unbound-method': string;
-        'arrow-body-style': string[];
-        'block-spacing': string;
-        'comma-dangle': (string | {
-            arrays: string;
-            exports: string;
-            functions: string;
-            imports: string;
-            objects: string;
-        })[];
-        'eol-last': string;
-        'import/prefer-default-export': string;
-        'no-multi-spaces': string;
-        'no-multiple-empty-lines': (string | {
-            max: number;
-            maxEOF: number;
-        })[];
-        'no-plusplus': string;
-        'no-restricted-syntax': string;
-        'no-unused-vars': string;
-        'padding-line-between-statements': (string | {
-            blankLine: string;
-            prev: string[];
-            next: string;
-        } | {
-            blankLine: string;
-            prev: string[];
-            next: string[];
-        })[];
-        'prefer-arrow-callback': string;
-        quotes: string[];
-        semi: string[];
-    };
+    rules: Linter.RulesRecord;
 };

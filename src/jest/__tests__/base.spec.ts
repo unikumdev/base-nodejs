@@ -100,8 +100,8 @@ describe('jest base', () => {
               theModule.getBase({
                 pathDirRoot: defaults.paths.dirs.root,
                 pathFileTSConfig,
-              })
-            )
+              }),
+            ),
           ).toMatchInlineSnapshot(`
             Object {
               "coveragePathIgnorePatterns": Array [
@@ -182,7 +182,7 @@ describe('jest base', () => {
           const keyFirstTransform = Object.keys(result.transform || {})[0]
 
           expect(
-            ((result.transform || {})[keyFirstTransform][1] as any).jsc.paths
+            ((result.transform || {})[keyFirstTransform][1] as any).jsc.paths,
           ).toBeDefined()
           ;((result.transform || {})[keyFirstTransform][1] as any).jsc.paths =
             undefined
@@ -233,7 +233,7 @@ describe('jest base', () => {
                         "decorators": false,
                         "dynamicImport": true,
                         "syntax": "typescript",
-                        "tsx": false,
+                        "tsx": true,
                       },
                       "paths": undefined,
                       "target": "es2021",

@@ -16,13 +16,13 @@ describe('eslint base', () => {
   const filterConfigResults = (
     x:
       | ReturnType<typeof theModule['getBase']>
-      | ReturnType<typeof theModule['getBaseESLint']>
+      | ReturnType<typeof theModule['getBaseESLint']>,
   ) => {
     // eslint-disable-next-line no-param-reassign
     x.parserOptions.project = x.parserOptions.project.filter(
       (y) =>
         // this is local computer path and should not be included in test
-        !y.endsWith('tsconfig.json')
+        !y.endsWith('tsconfig.json'),
     )
 
     return x
@@ -32,8 +32,8 @@ describe('eslint base', () => {
     it('returns config', () => {
       expect(
         filterConfigResults(
-          theModule.getBase({ pathFileTSConfig: pathFileTSConfigValid })
-        )
+          theModule.getBase({ pathFileTSConfig: pathFileTSConfigValid }),
+        ),
       ).toMatchInlineSnapshot(`
         Object {
           "env": Object {
@@ -99,6 +99,49 @@ describe('eslint base', () => {
             "no-plusplus": "off",
             "no-restricted-syntax": "off",
             "no-unused-vars": "error",
+            "padding-line-between-statements": Array [
+              "error",
+              Object {
+                "blankLine": "always",
+                "next": "*",
+                "prev": Array [
+                  "block-like",
+                  "block",
+                  "class",
+                  "const",
+                  "directive",
+                  "for",
+                  "function",
+                  "iife",
+                  "let",
+                  "switch",
+                  "try",
+                  "var",
+                  "while",
+                ],
+              },
+              Object {
+                "blankLine": "any",
+                "next": Array [
+                  "const",
+                  "let",
+                  "var",
+                ],
+                "prev": Array [
+                  "const",
+                  "let",
+                  "var",
+                ],
+              },
+              Object {
+                "blankLine": "always",
+                "next": "*",
+                "prev": Array [
+                  "case",
+                  "default",
+                ],
+              },
+            ],
             "prefer-arrow-callback": "error",
             "quotes": Array [
               "error",
@@ -121,8 +164,8 @@ describe('eslint base', () => {
           theModule.getBaseESLint({
             pathDirRoot: paths.dir.root,
             pathFileTSConfig: pathFileTSConfigValid,
-          })
-        )
+          }),
+        ),
       ).toMatchInlineSnapshot(`
         Object {
           "env": Object {
@@ -191,6 +234,49 @@ describe('eslint base', () => {
             "no-plusplus": "off",
             "no-restricted-syntax": "off",
             "no-unused-vars": "error",
+            "padding-line-between-statements": Array [
+              "error",
+              Object {
+                "blankLine": "always",
+                "next": "*",
+                "prev": Array [
+                  "block-like",
+                  "block",
+                  "class",
+                  "const",
+                  "directive",
+                  "for",
+                  "function",
+                  "iife",
+                  "let",
+                  "switch",
+                  "try",
+                  "var",
+                  "while",
+                ],
+              },
+              Object {
+                "blankLine": "any",
+                "next": Array [
+                  "const",
+                  "let",
+                  "var",
+                ],
+                "prev": Array [
+                  "const",
+                  "let",
+                  "var",
+                ],
+              },
+              Object {
+                "blankLine": "always",
+                "next": "*",
+                "prev": Array [
+                  "case",
+                  "default",
+                ],
+              },
+            ],
             "prefer-arrow-callback": "error",
             "quotes": Array [
               "error",

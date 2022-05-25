@@ -1,5 +1,5 @@
-import * as baseESLint from "./eslint/base";
-import * as baseJest from "./jest/base";
+import * as baseESLint from '@this/src/eslint/base';
+import * as baseJest from '@this/src/jest/base';
 export declare const eslint: {
     base: typeof baseESLint;
 };

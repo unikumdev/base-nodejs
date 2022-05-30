@@ -98,6 +98,7 @@ describe('eslint base', () => {
             ],
             "no-plusplus": "off",
             "no-restricted-syntax": "off",
+            "no-underscore-dangle": "off",
             "no-unused-vars": "error",
             "padding-line-between-statements": Array [
               "error",
@@ -234,6 +235,7 @@ describe('eslint base', () => {
             ],
             "no-plusplus": "off",
             "no-restricted-syntax": "off",
+            "no-underscore-dangle": "off",
             "no-unused-vars": "error",
             "padding-line-between-statements": Array [
               "error",
@@ -395,6 +397,7 @@ describe('eslint base', () => {
             ],
             "no-plusplus": "off",
             "no-restricted-syntax": "off",
+            "no-underscore-dangle": "off",
             "no-unused-vars": "error",
             "padding-line-between-statements": Array [
               "error",

@@ -79,6 +79,7 @@ export const getBase = ({
           objects: 'only-multiline',
         },
       ],
+      'no-underscore-dangle': 'off',
       'eol-last': 'error',
       'import/prefer-default-export': 'off',
       'no-multi-spaces': 'error',

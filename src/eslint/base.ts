@@ -151,6 +151,7 @@ export const getBase = ({
       quotes: ['error', 'single'],
       semi: ['error', 'never'],
       'sort/imports': 'off',
+      'sort/type-properties': 'error',
     } as typeof rulesReact,
     settings: {
       react: {

@@ -45,8 +45,8 @@ const defaults = {
 
 const getSWCPaths = <
   T1 extends {
-    readonly paths?: typeTypeScript.MapLike<string[]>
     readonly pathDirRoot: string
+    readonly paths?: typeTypeScript.MapLike<string[]>
   },
 >(
   options: T1,

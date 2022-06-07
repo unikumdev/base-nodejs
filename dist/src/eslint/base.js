@@ -142,6 +142,7 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
             quotes: ['error', 'single'],
             semi: ['error', 'never'],
             'sort/imports': 'off',
+            'sort/type-properties': 'error',
         },
         settings: {
             react: {

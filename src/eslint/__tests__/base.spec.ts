@@ -192,6 +192,7 @@ describe('eslint base', () => {
               "never",
             ],
             "sort/imports": "off",
+            "sort/type-properties": "error",
           },
           "settings": Object {
             "react": Object {
@@ -389,6 +390,7 @@ describe('eslint base', () => {
               "never",
             ],
             "sort/imports": "off",
+            "sort/type-properties": "error",
           },
           "settings": Object {
             "react": Object {
@@ -569,6 +571,7 @@ describe('eslint base', () => {
               "never",
             ],
             "sort/imports": "off",
+            "sort/type-properties": "error",
           },
           "settings": Object {
             "react": Object {

@@ -14,8 +14,8 @@ export class Package {
       pathFile: pathFilePackageJSON,
     })
     const contentParsed: {
-      readonly devDependencies?: TObjectGeneric
       readonly dependencies?: TObjectGeneric
+      readonly devDependencies?: TObjectGeneric
       peerDependencies?: TObjectGeneric
     } = JSON.parse(content)
 

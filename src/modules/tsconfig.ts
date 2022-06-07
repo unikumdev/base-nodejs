@@ -20,8 +20,8 @@ export class TSConfig {
 
   static readTSConfigRecursive({ pathFile }: { readonly pathFile: string }) {
     let accumulated: {
-      extends?: string
       readonly compilerOptions?: typeTypeScript.CompilerOptions
+      extends?: string
     } = {
       ...(importFrom(config.paths.dirs.root, pathFile) as any),
     }

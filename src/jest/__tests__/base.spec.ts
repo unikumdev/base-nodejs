@@ -94,7 +94,7 @@ describe('jest base', () => {
 
       describe('pathFileTSConfig', () => {
         it('provided (fake file)', async () => {
-          const { path: pathFileTSConfig, cleanup } = await file()
+          const { cleanup, path: pathFileTSConfig } = await file()
 
           expect(
             filterConfigResults(

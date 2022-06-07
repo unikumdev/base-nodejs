@@ -8,11 +8,6 @@ export declare const getBase: ({ isReact, pathFileTSConfig, }: {
         node: boolean;
     };
     extends: (string | false | undefined)[];
-    settings: {
-        react: {
-            version: string;
-        };
-    };
     parser: string;
     parserOptions: {
         extraFileExtensions: string[];
@@ -21,6 +16,11 @@ export declare const getBase: ({ isReact, pathFileTSConfig, }: {
     plugins: string[];
     root: boolean;
     rules: Linter.RulesRecord;
+    settings: {
+        react: {
+            version: string;
+        };
+    };
 };
 export declare const getBaseESLint: <T1 extends {
     readonly isReact?: boolean | undefined;
@@ -33,11 +33,6 @@ export declare const getBaseESLint: <T1 extends {
         node: boolean;
     };
     extends: (string | false | undefined)[];
-    settings: {
-        react: {
-            version: string;
-        };
-    };
     parser: string;
     parserOptions: {
         extraFileExtensions: string[];
@@ -46,6 +41,11 @@ export declare const getBaseESLint: <T1 extends {
     plugins: string[];
     root: boolean;
     rules: Linter.RulesRecord;
+    settings: {
+        react: {
+            version: string;
+        };
+    };
 } | {
     env: {
         jest: boolean;
@@ -54,11 +54,6 @@ export declare const getBaseESLint: <T1 extends {
         node: boolean;
     };
     extends: (string | false | undefined)[];
-    settings: {
-        react: {
-            version: string;
-        };
-    };
     parser: string;
     parserOptions: {
         extraFileExtensions: string[];
@@ -67,4 +62,9 @@ export declare const getBaseESLint: <T1 extends {
     plugins: string[];
     root: boolean;
     rules: Linter.RulesRecord;
+    settings: {
+        react: {
+            version: string;
+        };
+    };
 };

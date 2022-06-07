@@ -44,6 +44,7 @@ describe('eslint base', () => {
           "extends": Array [
             "eslint-config-airbnb-base",
             "eslint-config-airbnb-typescript/base",
+            "plugin:sort/recommended",
             "plugin:@typescript-eslint/recommended",
             "plugin:@typescript-eslint/recommended-requiring-type-checking",
             "prettier",
@@ -59,6 +60,7 @@ describe('eslint base', () => {
             ],
           },
           "plugins": Array [
+            "sort",
             "@typescript-eslint",
           ],
           "root": true,
@@ -189,6 +191,7 @@ describe('eslint base', () => {
               "error",
               "never",
             ],
+            "sort/imports": "off",
           },
           "settings": Object {
             "react": Object {
@@ -217,6 +220,7 @@ describe('eslint base', () => {
             "eslint-config-airbnb-base",
             "plugin:react/recommended",
             "eslint-config-airbnb-typescript",
+            "plugin:sort/recommended",
             "plugin:@typescript-eslint/recommended",
             "plugin:@typescript-eslint/recommended-requiring-type-checking",
             "prettier",
@@ -232,6 +236,7 @@ describe('eslint base', () => {
             ],
           },
           "plugins": Array [
+            "sort",
             "@typescript-eslint",
           ],
           "root": true,
@@ -383,6 +388,7 @@ describe('eslint base', () => {
               "error",
               "never",
             ],
+            "sort/imports": "off",
           },
           "settings": Object {
             "react": Object {
@@ -414,6 +420,7 @@ describe('eslint base', () => {
           "extends": Array [
             "eslint-config-airbnb-base",
             "eslint-config-airbnb-typescript/base",
+            "plugin:sort/recommended",
             "plugin:@typescript-eslint/recommended",
             "plugin:@typescript-eslint/recommended-requiring-type-checking",
             "prettier",
@@ -430,6 +437,7 @@ describe('eslint base', () => {
             ],
           },
           "plugins": Array [
+            "sort",
             "@typescript-eslint",
           ],
           "root": true,
@@ -560,6 +568,7 @@ describe('eslint base', () => {
               "error",
               "never",
             ],
+            "sort/imports": "off",
           },
           "settings": Object {
             "react": Object {

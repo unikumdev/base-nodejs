@@ -4,6 +4,7 @@
  * https://github.com/kulshekhar/ts-jest/issues/542
  */
 import * as path from 'path'
+
 import {
   access,
   constants as constantsFS,
@@ -11,9 +12,9 @@ import {
   readFile,
   writeFile,
 } from 'fs-extra'
-import yargs from 'yargs/yargs'
-import { hideBin } from 'yargs/helpers'
 import { Argv } from 'yargs'
+import { hideBin } from 'yargs/helpers'
+import yargs from 'yargs/yargs'
 
 export interface IOptionsCLI {
   readonly pathFile?: string

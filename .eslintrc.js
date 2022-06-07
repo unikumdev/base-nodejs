@@ -1,4 +1,5 @@
 const { join } = require('path')
+
 const baseEslint = require('./dist/src/eslint/base')
 
 module.exports = {

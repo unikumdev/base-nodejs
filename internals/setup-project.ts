@@ -1,5 +1,5 @@
-import { Package } from '@this/src/modules/package'
 import config from '@this/src/config'
+import { Package } from '@this/src/modules/package'
 
 class SetupProject {
   static setup() {

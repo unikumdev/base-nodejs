@@ -8,8 +8,8 @@ const tslib_1 = require("tslib");
  */
 const path = tslib_1.__importStar(require("path"));
 const fs_extra_1 = require("fs-extra");
-const yargs_1 = tslib_1.__importDefault(require("yargs/yargs"));
 const helpers_1 = require("yargs/helpers");
+const yargs_1 = tslib_1.__importDefault(require("yargs/yargs"));
 class LCOVFix {
     static async fix({ pathFile, pathFileOutput, }) {
         const pathPrefix = process.cwd();

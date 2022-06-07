@@ -1,5 +1,6 @@
-import type { Linter } from 'eslint'
 import { join } from 'path'
+
+import type { Linter } from 'eslint'
 
 export const getBase = ({
   isReact,
@@ -82,6 +83,34 @@ export const getBase = ({
       'no-underscore-dangle': 'off',
       'eol-last': 'error',
       'import/prefer-default-export': 'off',
+      'import/order': [
+        'error',
+        {
+          alphabetize: {
+            /* sort in ascending order. Options: ['ignore', 'asc', 'desc'] */
+            order: 'asc',
+            caseInsensitive: false,
+          },
+          groups: [
+            'builtin',
+            'external',
+            'index',
+            ['sibling', 'parent'],
+            'internal',
+            'object',
+            'type',
+          ],
+          pathGroups: [
+            {
+              pattern: '@this/**/*',
+              group: 'internal',
+              position: 'after',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['internal'],
+          'newlines-between': 'always',
+        },
+      ],
       'no-multi-spaces': 'error',
       'no-multiple-empty-lines': [
         'error',

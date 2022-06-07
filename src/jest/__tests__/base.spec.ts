@@ -1,5 +1,6 @@
-import { file } from 'tmp-promise'
 import { join } from 'path'
+
+import { file } from 'tmp-promise'
 
 import * as theModule from '@this/src/jest/base'
 

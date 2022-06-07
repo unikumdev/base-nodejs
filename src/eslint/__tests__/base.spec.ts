@@ -1,4 +1,5 @@
 import { join } from 'path'
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { ESLint } from 'eslint'
 
@@ -87,6 +88,38 @@ describe('eslint base', () => {
               },
             ],
             "eol-last": "error",
+            "import/order": Array [
+              "error",
+              Object {
+                "alphabetize": Object {
+                  "caseInsensitive": false,
+                  "order": "asc",
+                },
+                "groups": Array [
+                  "builtin",
+                  "external",
+                  "index",
+                  Array [
+                    "sibling",
+                    "parent",
+                  ],
+                  "internal",
+                  "object",
+                  "type",
+                ],
+                "newlines-between": "always",
+                "pathGroups": Array [
+                  Object {
+                    "group": "internal",
+                    "pattern": "@this/**/*",
+                    "position": "after",
+                  },
+                ],
+                "pathGroupsExcludedImportTypes": Array [
+                  "internal",
+                ],
+              },
+            ],
             "import/prefer-default-export": "off",
             "no-multi-spaces": "error",
             "no-multiple-empty-lines": Array [
@@ -224,6 +257,38 @@ describe('eslint base', () => {
               },
             ],
             "eol-last": "error",
+            "import/order": Array [
+              "error",
+              Object {
+                "alphabetize": Object {
+                  "caseInsensitive": false,
+                  "order": "asc",
+                },
+                "groups": Array [
+                  "builtin",
+                  "external",
+                  "index",
+                  Array [
+                    "sibling",
+                    "parent",
+                  ],
+                  "internal",
+                  "object",
+                  "type",
+                ],
+                "newlines-between": "always",
+                "pathGroups": Array [
+                  Object {
+                    "group": "internal",
+                    "pattern": "@this/**/*",
+                    "position": "after",
+                  },
+                ],
+                "pathGroupsExcludedImportTypes": Array [
+                  "internal",
+                ],
+              },
+            ],
             "import/prefer-default-export": "off",
             "no-multi-spaces": "error",
             "no-multiple-empty-lines": Array [
@@ -386,6 +451,38 @@ describe('eslint base', () => {
               },
             ],
             "eol-last": "error",
+            "import/order": Array [
+              "error",
+              Object {
+                "alphabetize": Object {
+                  "caseInsensitive": false,
+                  "order": "asc",
+                },
+                "groups": Array [
+                  "builtin",
+                  "external",
+                  "index",
+                  Array [
+                    "sibling",
+                    "parent",
+                  ],
+                  "internal",
+                  "object",
+                  "type",
+                ],
+                "newlines-between": "always",
+                "pathGroups": Array [
+                  Object {
+                    "group": "internal",
+                    "pattern": "@this/**/*",
+                    "position": "after",
+                  },
+                ],
+                "pathGroupsExcludedImportTypes": Array [
+                  "internal",
+                ],
+              },
+            ],
             "import/prefer-default-export": "off",
             "no-multi-spaces": "error",
             "no-multiple-empty-lines": Array [

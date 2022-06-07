@@ -1,9 +1,10 @@
 import { merge } from 'merge-anything'
-import type { Config } from '@jest/types'
-import type * as typeTypeScript from 'typescript'
-import type * as typeSWC from '@swc/core'
 
 import { TSConfig } from '@this/src/modules/tsconfig'
+
+import type { Config } from '@jest/types'
+import type * as typeSWC from '@swc/core'
+import type * as typeTypeScript from 'typescript'
 
 export type { Config }
 
@@ -46,9 +47,9 @@ const getSWCPaths = <
   T1 extends {
     readonly paths?: typeTypeScript.MapLike<string[]>
     readonly pathDirRoot: string
-  }
+  },
 >(
-  options: T1
+  options: T1,
 ) => {
   if (options.paths) {
     Object.keys(options.paths).forEach((k) => {

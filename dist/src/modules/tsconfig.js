@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TSConfig = void 0;
 const tslib_1 = require("tslib");
-const typescript_1 = require("typescript");
-const merge_anything_1 = require("merge-anything");
-const import_from_1 = tslib_1.__importDefault(require("import-from"));
 const path_1 = require("path");
-const config_1 = tslib_1.__importDefault(require("../config"));
+const import_from_1 = tslib_1.__importDefault(require("import-from"));
+const merge_anything_1 = require("merge-anything");
+const typescript_1 = require("typescript");
+const config_1 = tslib_1.__importDefault(require("@this/src/config"));
 class TSConfig {
     static readTSConfigRecursive({ pathFile }) {
         let accumulated = {

@@ -1,5 +1,6 @@
-import { join } from 'path'
 import { readFile, unlink } from 'fs/promises'
+import { join } from 'path'
+
 import { LCOVFix as TheModule } from '@this/src/jest/lcovFix'
 
 describe(TheModule.name, () => {
@@ -22,7 +23,7 @@ describe(TheModule.name, () => {
           expect(
             theFn({
               pathFile: join(paths.fileTempOutput, 'dsadsa/dy35345/dsa'),
-            })
+            }),
           ).rejects.toThrow('no such file or directory'))
       })
 
@@ -30,7 +31,7 @@ describe(TheModule.name, () => {
         expect(
           theFn({
             pathFile: paths.fileFixture,
-          })
+          }),
         ).resolves.toHaveProperty('pathFile', paths.fileFixture))
 
       it('file exist, pathFileOutputSupplied', () =>
@@ -38,7 +39,7 @@ describe(TheModule.name, () => {
           theFn({
             pathFile: paths.fileFixture,
             pathFileOutput: paths.fileTempOutput,
-          })
+          }),
         ).resolves.toHaveProperty('pathFileOutput', paths.fileTempOutput))
     })
   })

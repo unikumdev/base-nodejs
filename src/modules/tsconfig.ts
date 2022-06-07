@@ -1,19 +1,21 @@
-import { parseConfigFileTextToJson } from 'typescript'
-import { merge } from 'merge-anything'
-import importFrom from 'import-from'
 import { dirname, resolve } from 'path'
-import type * as typeTypeScript from 'typescript'
+
+import importFrom from 'import-from'
+import { merge } from 'merge-anything'
+import { parseConfigFileTextToJson } from 'typescript'
 
 import config from '@this/src/config'
 
+import type * as typeTypeScript from 'typescript'
+
 export class TSConfig {
   static readTSConfig = (
-    x: Parameters<typeof TSConfig['readTSConfigRecursive']>[0]
+    x: Parameters<typeof TSConfig['readTSConfigRecursive']>[0],
   ) =>
     parseConfigFileTextToJson(
       // eslint-disable-next-line
       '' /*'tsconfig.json'*/,
-      JSON.stringify(TSConfig.readTSConfigRecursive(x), undefined, 2)
+      JSON.stringify(TSConfig.readTSConfigRecursive(x), undefined, 2),
     ).config
 
   static readTSConfigRecursive({ pathFile }: { readonly pathFile: string }) {
@@ -34,7 +36,7 @@ export class TSConfig {
             : accumulated.extends,
         }),
 
-        accumulated
+        accumulated,
       ) as any
     }
 

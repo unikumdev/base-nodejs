@@ -86,10 +86,10 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
                         'builtin',
                         'external',
                         'index',
-                        ['sibling', 'parent'],
                         'internal',
                         'object',
                         'type',
+                        ['sibling', 'parent'],
                     ],
                     pathGroups: [
                         {

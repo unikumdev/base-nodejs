@@ -11,7 +11,6 @@ export type { Config }
 const defaults = {
   configs: {
     '@swc/jest': {
-      sourceMaps: true,
       jsc: {
         externalHelpers: true,
         parser: {
@@ -29,17 +28,18 @@ const defaults = {
       module: {
         type: 'es6',
       },
+      sourceMaps: true,
     },
   },
 
   moduleNameMapper: {
+    // @TODO remove this when SWC has fixed https://github.com/swc-project/swc/issues/2753
+    // right now the jsc.paths does nothing
+    '@this/(.*)': '<rootDir>',
     '\\.(css|less|scss|sss|styl|sass)$':
       '<rootDir>/node_modules/identity-obj-proxy',
     // ESM needs a `.js` file extension
     '^(\\.{1,2}/.*)\\.js$': '$1',
-    // @TODO remove this when SWC has fixed https://github.com/swc-project/swc/issues/2753
-    // right now the jsc.paths does nothing
-    '@this/(.*)': '<rootDir>',
   },
 }
 
@@ -85,8 +85,8 @@ export const getBase = ({
     : {}
 
   return {
-    coverageReporters: ['html-spa', 'lcov'],
     coveragePathIgnorePatterns: ['<rootDir>/build/', '<rootDir>/dist/'],
+    coverageReporters: ['html-spa', 'lcov'],
     extensionsToTreatAsEsm: ['.ts', '.tsx'],
     moduleFileExtensions: [
       'cjs',
@@ -111,13 +111,6 @@ export const getBase = ({
         merge(defaults.configs['@swc/jest'], {
           jsc: {
             baseUrl: contenFileTSConfig.compilerOptions?.baseUrl || undefined,
-            paths:
-              pathDirRoot && contenFileTSConfig.compilerOptions?.paths
-                ? getSWCPaths({
-                    pathDirRoot,
-                    paths: contenFileTSConfig.compilerOptions.paths,
-                  })
-                : undefined,
             parser: {
               decorators:
                 contenFileTSConfig.compilerOptions?.experimentalDecorators ||
@@ -127,17 +120,24 @@ export const getBase = ({
                 (contenFileTSConfig.compilerOptions?.jsx && true) ||
                 defaults.configs['@swc/jest'].jsc.parser.tsx,
             } as typeSWC.TsParserConfig,
-            transform: {
-              legacyDecorator:
-                contenFileTSConfig.compilerOptions?.experimentalDecorators ||
-                false,
-              decoratorMetadata:
-                contenFileTSConfig.compilerOptions?.emitDecoratorMetadata ||
-                false,
-            },
+            paths:
+              pathDirRoot && contenFileTSConfig.compilerOptions?.paths
+                ? getSWCPaths({
+                    pathDirRoot,
+                    paths: contenFileTSConfig.compilerOptions.paths,
+                  })
+                : undefined,
             target:
               contenFileTSConfig.compilerOptions?.target ||
               defaults.configs['@swc/jest'].jsc?.target,
+            transform: {
+              decoratorMetadata:
+                contenFileTSConfig.compilerOptions?.emitDecoratorMetadata ||
+                false,
+              legacyDecorator:
+                contenFileTSConfig.compilerOptions?.experimentalDecorators ||
+                false,
+            },
           },
           // needed for snapthots, user may not override this
           sourceMaps: true,

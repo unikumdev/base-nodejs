@@ -5,6 +5,7 @@ const path_1 = require("path");
 const getBase = ({ isReact, pathFileTSConfig, }) => {
     const rulesReact = isReact
         ? {
+            'react/button-has-type': 'error',
             'react/jsx-newline': ['error', { prevent: false }],
             'react/jsx-sort-default-props': 'error',
             'react/jsx-sort-props': 'error',
@@ -18,7 +19,6 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
             'react/self-closing-comp': 'error',
             'react/sort-comp': 'error',
             'react/sort-prop-types': 'error',
-            'react/button-has-type': 'error',
         }
         : {};
     return {
@@ -32,27 +32,23 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
             isReact
                 ? 'eslint-config-airbnb-typescript'
                 : 'eslint-config-airbnb-typescript/base',
+            'plugin:sort/recommended',
             'plugin:@typescript-eslint/recommended',
             'plugin:@typescript-eslint/recommended-requiring-type-checking',
             'prettier',
         ].filter(Boolean),
-        settings: {
-            react: {
-                version: 'detect',
-            },
-        },
         parser: '@typescript-eslint/parser',
         parserOptions: {
             extraFileExtensions: ['.mjs'],
             project: [pathFileTSConfig, '**/*.js', '**/*.ts'],
         },
-        plugins: ['@typescript-eslint'],
+        plugins: ['sort', '@typescript-eslint'],
         root: true,
         rules: {
             ...rulesReact,
             '@typescript-eslint/explicit-module-boundary-types': 'off',
-            '@typescript-eslint/no-unsafe-assignment': 'off',
             '@typescript-eslint/no-explicit-any': 'off',
+            '@typescript-eslint/no-unsafe-assignment': 'off',
             '@typescript-eslint/no-unsafe-call': 'off',
             '@typescript-eslint/no-unsafe-member-access': 'off',
             '@typescript-eslint/no-unsafe-return': 'off',
@@ -71,16 +67,14 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
                     objects: 'only-multiline',
                 },
             ],
-            'no-underscore-dangle': 'off',
             'eol-last': 'error',
-            'import/prefer-default-export': 'off',
             'import/order': [
                 'error',
                 {
                     alphabetize: {
+                        caseInsensitive: false,
                         /* sort in ascending order. Options: ['ignore', 'asc', 'desc'] */
                         order: 'asc',
-                        caseInsensitive: false,
                     },
                     groups: [
                         'builtin',
@@ -91,17 +85,18 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
                         'type',
                         ['sibling', 'parent'],
                     ],
+                    'newlines-between': 'always',
                     pathGroups: [
                         {
-                            pattern: '@this/**/*',
                             group: 'internal',
+                            pattern: '@this/**/*',
                             position: 'after',
                         },
                     ],
                     pathGroupsExcludedImportTypes: ['internal'],
-                    'newlines-between': 'always',
                 },
             ],
+            'import/prefer-default-export': 'off',
             'no-multi-spaces': 'error',
             'no-multiple-empty-lines': [
                 'error',
@@ -112,11 +107,14 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
             ],
             'no-plusplus': 'off',
             'no-restricted-syntax': 'off',
+            'no-underscore-dangle': 'off',
             'no-unused-vars': 'error',
+            'object-curly-spacing': ['error', 'always'],
             'padding-line-between-statements': [
                 'error',
                 {
                     blankLine: 'always',
+                    next: '*',
                     prev: [
                         'block-like',
                         'block',
@@ -132,19 +130,23 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
                         'var',
                         'while',
                     ],
-                    next: '*',
                 },
                 {
                     blankLine: 'any',
-                    prev: ['const', 'let', 'var'],
                     next: ['const', 'let', 'var'],
+                    prev: ['const', 'let', 'var'],
                 },
-                { blankLine: 'always', prev: ['case', 'default'], next: '*' },
+                { blankLine: 'always', next: '*', prev: ['case', 'default'] },
             ],
-            'object-curly-spacing': ['error', 'always'],
             'prefer-arrow-callback': 'error',
             quotes: ['error', 'single'],
             semi: ['error', 'never'],
+            'sort/imports': 'off',
+        },
+        settings: {
+            react: {
+                version: 'detect',
+            },
         },
     };
 };

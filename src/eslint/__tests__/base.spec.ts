@@ -133,6 +133,10 @@ describe('eslint base', () => {
             "no-restricted-syntax": "off",
             "no-underscore-dangle": "off",
             "no-unused-vars": "error",
+            "object-curly-spacing": Array [
+              "error",
+              "always",
+            ],
             "padding-line-between-statements": Array [
               "error",
               Object {
@@ -302,6 +306,10 @@ describe('eslint base', () => {
             "no-restricted-syntax": "off",
             "no-underscore-dangle": "off",
             "no-unused-vars": "error",
+            "object-curly-spacing": Array [
+              "error",
+              "always",
+            ],
             "padding-line-between-statements": Array [
               "error",
               Object {
@@ -496,6 +504,10 @@ describe('eslint base', () => {
             "no-restricted-syntax": "off",
             "no-underscore-dangle": "off",
             "no-unused-vars": "error",
+            "object-curly-spacing": Array [
+              "error",
+              "always",
+            ],
             "padding-line-between-statements": Array [
               "error",
               Object {

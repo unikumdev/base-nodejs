@@ -141,6 +141,7 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
                 },
                 { blankLine: 'always', prev: ['case', 'default'], next: '*' },
             ],
+            'object-curly-spacing': ['error', 'always'],
             'prefer-arrow-callback': 'error',
             quotes: ['error', 'single'],
             semi: ['error', 'never'],

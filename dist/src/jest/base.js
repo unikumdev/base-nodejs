@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getBase = void 0;
 const merge_anything_1 = require("merge-anything");
-const tsconfig_1 = require("@this/src/modules/tsconfig");
+const tsconfig_1 = require("../modules/tsconfig");
 const defaults = {
     configs: {
         '@swc/jest': {

@@ -6,11 +6,9 @@ export class Component2 extends React.Component<{
 }> {
   getName = () => this.props.name
 
-  render() {
-    return (
-      <>
-        <div children={this.getName()} />
-      </>
-    )
-  }
+  render = () => (
+    <>
+      <div children={this.getName()} />
+    </>
+  )
 }

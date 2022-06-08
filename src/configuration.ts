@@ -5,17 +5,15 @@ interface IConfigurationOptions {
 }
 
 export class Configuration {
-  static createPathsConfig({ pathRoot }: { readonly pathRoot: string }) {
-    return {
-      dirs: {
-        root: pathRoot,
-      },
+  static createPathsConfig = ({ pathRoot }: { readonly pathRoot: string }) => ({
+    dirs: {
+      root: pathRoot,
+    },
 
-      files: {
-        'package.json': join(pathRoot, 'package.json'),
-      },
-    }
-  }
+    files: {
+      'package.json': join(pathRoot, 'package.json'),
+    },
+  })
 
   paths: ReturnType<typeof Configuration.createPathsConfig>
 

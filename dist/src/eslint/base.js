@@ -42,7 +42,7 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
             extraFileExtensions: ['.mjs'],
             project: [pathFileTSConfig, '**/*.js', '**/*.ts'],
         },
-        plugins: ['prettier', 'sort', '@typescript-eslint'],
+        plugins: ['@typescript-eslint', 'prefer-arrow', 'prettier', 'sort'],
         root: true,
         rules: {
             ...rulesReact,
@@ -150,7 +150,15 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
                 },
                 { blankLine: 'always', next: '*', prev: ['case', 'default'] },
             ],
-            'prefer-arrow-callback': 'error',
+            'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
+            'prefer-arrow/prefer-arrow-functions': [
+                'error',
+                {
+                    classPropertiesAllowed: true,
+                    disallowPrototype: true,
+                    singleReturnOnly: true,
+                },
+            ],
             'prettier/prettier': 'error',
             quotes: ['error', 'single'],
             semi: ['error', 'never'],

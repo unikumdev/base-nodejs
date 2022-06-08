@@ -60,9 +60,10 @@ describe('eslint base', () => {
             ],
           },
           "plugins": Array [
+            "@typescript-eslint",
+            "prefer-arrow",
             "prettier",
             "sort",
-            "@typescript-eslint",
           ],
           "root": true,
           "rules": Object {
@@ -195,7 +196,20 @@ describe('eslint base', () => {
                 ],
               },
             ],
-            "prefer-arrow-callback": "error",
+            "prefer-arrow-callback": Array [
+              "error",
+              Object {
+                "allowNamedFunctions": true,
+              },
+            ],
+            "prefer-arrow/prefer-arrow-functions": Array [
+              "error",
+              Object {
+                "classPropertiesAllowed": true,
+                "disallowPrototype": true,
+                "singleReturnOnly": true,
+              },
+            ],
             "prettier/prettier": "error",
             "quotes": Array [
               "error",
@@ -251,9 +265,10 @@ describe('eslint base', () => {
             ],
           },
           "plugins": Array [
+            "@typescript-eslint",
+            "prefer-arrow",
             "prettier",
             "sort",
-            "@typescript-eslint",
           ],
           "root": true,
           "rules": Object {
@@ -386,7 +401,20 @@ describe('eslint base', () => {
                 ],
               },
             ],
-            "prefer-arrow-callback": "error",
+            "prefer-arrow-callback": Array [
+              "error",
+              Object {
+                "allowNamedFunctions": true,
+              },
+            ],
+            "prefer-arrow/prefer-arrow-functions": Array [
+              "error",
+              Object {
+                "classPropertiesAllowed": true,
+                "disallowPrototype": true,
+                "singleReturnOnly": true,
+              },
+            ],
             "prettier/prettier": "error",
             "quotes": Array [
               "error",
@@ -467,9 +495,10 @@ describe('eslint base', () => {
             ],
           },
           "plugins": Array [
+            "@typescript-eslint",
+            "prefer-arrow",
             "prettier",
             "sort",
-            "@typescript-eslint",
           ],
           "root": true,
           "rules": Object {
@@ -602,7 +631,20 @@ describe('eslint base', () => {
                 ],
               },
             ],
-            "prefer-arrow-callback": "error",
+            "prefer-arrow-callback": Array [
+              "error",
+              Object {
+                "allowNamedFunctions": true,
+              },
+            ],
+            "prefer-arrow/prefer-arrow-functions": Array [
+              "error",
+              Object {
+                "classPropertiesAllowed": true,
+                "disallowPrototype": true,
+                "singleReturnOnly": true,
+              },
+            ],
             "prettier/prettier": "error",
             "quotes": Array [
               "error",

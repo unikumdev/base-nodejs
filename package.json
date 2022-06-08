@@ -1,6 +1,6 @@
 {
   "name": "@unikum/base-nodejs",
-  "version": "0.1.43",
+  "version": "0.1.44",
   "description": "b1se necessities for a nodejs typescript project",
   "publishConfig": {
     "registry": "https://nexus.unikum.us/repository/unikum-npm"
@@ -45,6 +45,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^26.5.3",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-sort": "^2.4.0",
@@ -68,6 +69,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^26.5.3",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-sort": "^2.4.0",

@@ -4,7 +4,7 @@ export declare class TSConfig {
     static readTSConfigRecursive({ pathFile }: {
         readonly pathFile: string;
     }): {
-        extends?: string | undefined;
         readonly compilerOptions?: typeTypeScript.CompilerOptions | undefined;
+        extends?: string | undefined;
     };
 }

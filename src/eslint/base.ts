@@ -42,14 +42,14 @@ export const getBase = ({
       'plugin:sort/recommended',
       'plugin:@typescript-eslint/recommended',
       'plugin:@typescript-eslint/recommended-requiring-type-checking',
-      'prettier',
+      'plugin:prettier/recommended',
     ].filter(Boolean),
     parser: '@typescript-eslint/parser',
     parserOptions: {
       extraFileExtensions: ['.mjs'],
       project: [pathFileTSConfig, '**/*.js', '**/*.ts'],
     },
-    plugins: ['sort', '@typescript-eslint'],
+    plugins: ['prettier', 'sort', '@typescript-eslint'],
 
     root: true,
 
@@ -106,6 +106,18 @@ export const getBase = ({
         },
       ],
       'import/prefer-default-export': 'off',
+      'max-len': [
+        'error',
+        {
+          code: 80,
+          comments: 120,
+          ignoreRegExpLiterals: true,
+          ignoreStrings: true,
+          ignoreTemplateLiterals: true,
+          ignoreUrls: true,
+          tabWidth: 2,
+        },
+      ],
       'no-multi-spaces': 'error',
       'no-multiple-empty-lines': [
         'error',
@@ -148,6 +160,7 @@ export const getBase = ({
         { blankLine: 'always', next: '*', prev: ['case', 'default'] },
       ],
       'prefer-arrow-callback': 'error',
+      'prettier/prettier': 'error',
       quotes: ['error', 'single'],
       semi: ['error', 'never'],
       'sort/imports': 'off',

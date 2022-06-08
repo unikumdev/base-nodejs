@@ -32,7 +32,7 @@ export class LCOVFix {
         // eslint-disable-next-line no-console
         console.error(
           '\x1b[31m%s\x1b[0m',
-          'argument --path-file[string] is missing'
+          'argument --path-file[string] is missing',
         )
         throw new Error('program exit(1)')
       }

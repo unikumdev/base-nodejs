@@ -47,7 +47,7 @@ describe('eslint base', () => {
             "plugin:sort/recommended",
             "plugin:@typescript-eslint/recommended",
             "plugin:@typescript-eslint/recommended-requiring-type-checking",
-            "prettier",
+            "plugin:prettier/recommended",
           ],
           "parser": "@typescript-eslint/parser",
           "parserOptions": Object {
@@ -60,6 +60,7 @@ describe('eslint base', () => {
             ],
           },
           "plugins": Array [
+            "prettier",
             "sort",
             "@typescript-eslint",
           ],
@@ -123,6 +124,18 @@ describe('eslint base', () => {
               },
             ],
             "import/prefer-default-export": "off",
+            "max-len": Array [
+              "error",
+              Object {
+                "code": 80,
+                "comments": 120,
+                "ignoreRegExpLiterals": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true,
+                "ignoreUrls": true,
+                "tabWidth": 2,
+              },
+            ],
             "no-multi-spaces": "error",
             "no-multiple-empty-lines": Array [
               "error",
@@ -183,6 +196,7 @@ describe('eslint base', () => {
               },
             ],
             "prefer-arrow-callback": "error",
+            "prettier/prettier": "error",
             "quotes": Array [
               "error",
               "single",
@@ -224,7 +238,7 @@ describe('eslint base', () => {
             "plugin:sort/recommended",
             "plugin:@typescript-eslint/recommended",
             "plugin:@typescript-eslint/recommended-requiring-type-checking",
-            "prettier",
+            "plugin:prettier/recommended",
           ],
           "parser": "@typescript-eslint/parser",
           "parserOptions": Object {
@@ -237,6 +251,7 @@ describe('eslint base', () => {
             ],
           },
           "plugins": Array [
+            "prettier",
             "sort",
             "@typescript-eslint",
           ],
@@ -300,6 +315,18 @@ describe('eslint base', () => {
               },
             ],
             "import/prefer-default-export": "off",
+            "max-len": Array [
+              "error",
+              Object {
+                "code": 80,
+                "comments": 120,
+                "ignoreRegExpLiterals": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true,
+                "ignoreUrls": true,
+                "tabWidth": 2,
+              },
+            ],
             "no-multi-spaces": "error",
             "no-multiple-empty-lines": Array [
               "error",
@@ -360,6 +387,7 @@ describe('eslint base', () => {
               },
             ],
             "prefer-arrow-callback": "error",
+            "prettier/prettier": "error",
             "quotes": Array [
               "error",
               "single",
@@ -425,7 +453,7 @@ describe('eslint base', () => {
             "plugin:sort/recommended",
             "plugin:@typescript-eslint/recommended",
             "plugin:@typescript-eslint/recommended-requiring-type-checking",
-            "prettier",
+            "plugin:prettier/recommended",
             "plugin:jest/recommended",
           ],
           "parser": "@typescript-eslint/parser",
@@ -439,6 +467,7 @@ describe('eslint base', () => {
             ],
           },
           "plugins": Array [
+            "prettier",
             "sort",
             "@typescript-eslint",
           ],
@@ -502,6 +531,18 @@ describe('eslint base', () => {
               },
             ],
             "import/prefer-default-export": "off",
+            "max-len": Array [
+              "error",
+              Object {
+                "code": 80,
+                "comments": 120,
+                "ignoreRegExpLiterals": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true,
+                "ignoreUrls": true,
+                "tabWidth": 2,
+              },
+            ],
             "no-multi-spaces": "error",
             "no-multiple-empty-lines": Array [
               "error",
@@ -562,6 +603,7 @@ describe('eslint base', () => {
               },
             ],
             "prefer-arrow-callback": "error",
+            "prettier/prettier": "error",
             "quotes": Array [
               "error",
               "single",

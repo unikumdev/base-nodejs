@@ -28,7 +28,7 @@ export class Package {
 
     // eslint-disable-next-line no-console
     console.info(
-      'Syncing peerDependency along with dependency and devDependency...'
+      'Syncing peerDependency along with dependency and devDependency...',
     )
     // eslint-disable-next-line no-restricted-syntax, guard-for-in
     for (const k in allDependencies) {
@@ -41,7 +41,7 @@ export class Package {
           contentParsed.peerDependencies[k] = allDependencies[k]
           // eslint-disable-next-line no-console
           console.info(
-            `updated: ${valuePeerDependency} => ${valueNormalOrDevDependency}`
+            `updated: ${valuePeerDependency} => ${valueNormalOrDevDependency}`,
           )
         }
       }

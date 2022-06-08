@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { join } from 'path'
 
 import { file } from 'tmp-promise'

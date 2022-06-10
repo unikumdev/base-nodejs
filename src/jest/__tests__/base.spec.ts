@@ -23,7 +23,7 @@ describe('jest base', () => {
 
   describe('getBase', () => {
     describe('options', () => {
-      it('absent', () => {
+      it.concurrent('absent', () => {
         expect(filterConfigResults(theModule.getBase())).toMatchInlineSnapshot(`
           Object {
             "coveragePathIgnorePatterns": Array [
@@ -94,7 +94,7 @@ describe('jest base', () => {
       })
 
       describe('pathFileTSConfig', () => {
-        it('provided (fake file)', async () => {
+        it.concurrent('provided (fake file)', async () => {
           const { cleanup, path: pathFileTSConfig } = await file()
 
           expect(
@@ -174,7 +174,7 @@ describe('jest base', () => {
           return cleanup()
         })
 
-        it('real file', () => {
+        it.concurrent('real file', () => {
           const result = theModule.getBase({
             pathDirRoot: defaults.paths.dirs.root,
             pathFileTSConfig: join(defaults.paths.dirs.root, 'tsconfig.json'),

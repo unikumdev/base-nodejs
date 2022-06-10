@@ -1,0 +1,9 @@
+@import './helper/normalize';
+@import './helper/formalize';
+@import './helper/global';
+@import '../scss/config/variable';
+@import '../scss/config/mixin';
+@import '../scss/plugin/flickity';
+@import './global/header';
+@import './global/navigation';
+@import './pages/index';

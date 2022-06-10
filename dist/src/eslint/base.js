@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getBaseESLint = exports.getBase = void 0;
-const path_1 = require("path");
+const node_path_1 = require("node:path");
 const getBase = ({ isReact, pathFileTSConfig, }) => {
     const rulesReact = isReact
         ? {
@@ -178,7 +178,7 @@ const getBaseESLint = (options) => {
     /* istanbul ignore next */
     const baseConfig = (0, exports.getBase)(options);
     // eslint-disable-next-line import/no-dynamic-require, global-require
-    const packageJSON = require((0, path_1.join)(options.pathDirRoot, 'package.json'));
+    const packageJSON = require((0, node_path_1.join)(options.pathDirRoot, 'package.json'));
     if (packageJSON.devDependencies?.jest) {
         return {
             ...baseConfig,

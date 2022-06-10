@@ -1,0 +1,155 @@
+@import '../config/variable';
+
+body {
+  font-family: $font-family;
+  line-height: 1.4;
+}
+
+a {
+  transition: 200ms all;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+.container {
+  max-width: $max-width;
+  padding-right: $gutter;
+  padding-left: $gutter;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: $finger-size;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-family: inherit;
+  font-weight: bold;
+  color: white;
+  background-color: transparent;
+  border-radius: $border-radius;
+
+  &-icon {
+    justify-content: center;
+    padding-right: 0;
+    padding-left: 0;
+    font-size: $finger-size/2;
+    color: black;
+    background-color: transparent;
+  }
+
+  &-blue {
+    color: white;
+    background-color: $color-blue;
+  }
+
+  &-navy {
+    color: white;
+    background-color: $color-navy;
+  }
+}
+
+.text {
+  width: 100%;
+  min-height: $finger-size;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-family: inherit;
+  font-weight: bold;
+  color: $color-navy;
+  border: 0;
+  border-radius: $border-radius;
+
+  &::placeholder {
+    color: $color-navy;
+  }
+}
+
+.select {
+  display: inline-block;
+  width: 100%;
+  height: $finger-size;
+  padding-left: 40px;
+  font-family: inherit;
+  font-weight: bold;
+  color: $color-navy;
+  background-color: white;
+  border: 0;
+  border-radius: $border-radius;
+}
+
+.form-item {
+  position: relative;
+
+  .icon {
+    position: absolute;
+    top: 10%;
+    left: 10px;
+    display: flex;
+    font-size: $finger-size/2;
+    color: $color-navy;
+    pointer-events: none;
+  }
+
+  .text {
+    padding-left: 40px;
+  }
+
+  .select {
+    padding-left: 40px;
+  }
+}
+
+.form-description {
+  margin-top: 8px;
+  @include mq('tablet') {
+    font-size: $font-size;
+  }
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  position: relative;
+  display: flex;
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &::before {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    font-size: 18px;
+    content: '';
+    border: 2px solid white;
+  }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    font-size: 14px;
+    transform: translate(-50%, -50%);
+  }
+
+  input:checked + .icon {
+    display: block;
+  }
+}

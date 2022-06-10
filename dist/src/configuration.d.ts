@@ -2,9 +2,9 @@ interface IConfigurationOptions {
     readonly pathRoot: string;
 }
 export declare class Configuration {
-    static createPathsConfig({ pathRoot }: {
+    static createPathsConfig: ({ pathRoot }: {
         readonly pathRoot: string;
-    }): {
+    }) => {
         dirs: {
             root: string;
         };

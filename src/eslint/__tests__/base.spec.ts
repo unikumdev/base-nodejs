@@ -30,7 +30,7 @@ describe('eslint base', () => {
   }
 
   describe('getBase', () => {
-    it('returns config', () => {
+    it.concurrent('returns config', () => {
       expect(
         filterConfigResults(
           theModule.getBase({ pathFileTSConfig: pathFileTSConfigValid }),
@@ -231,7 +231,7 @@ describe('eslint base', () => {
       `)
     })
 
-    it('option isReact', () => {
+    it.concurrent('option isReact', () => {
       expect(
         filterConfigResults(
           theModule.getBase({
@@ -459,7 +459,7 @@ describe('eslint base', () => {
   })
 
   describe('getBaseJest', () => {
-    it('returns config', () => {
+    it.concurrent('returns config', () => {
       expect(
         filterConfigResults(
           theModule.getBaseESLint({
@@ -669,7 +669,7 @@ describe('eslint base', () => {
 
   describe('linter', () => {
     describe('errors', () => {
-      it('when errors are present', async () => {
+      it.concurrent('when errors are present', async () => {
         const eslint = new ESLint()
         const results = await eslint.lintFiles([
           join(paths.dir.fixtures, 'error/1.ts.fixture'),

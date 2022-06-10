@@ -1,7 +1,7 @@
 import * as theModule from '@this/src/index'
 
 describe('index', () => {
-  it('has no errors', () => {
+  it.concurrent('has no errors', () => {
     expect(theModule).toMatchInlineSnapshot(`
       Object {
         "Jest": Object {

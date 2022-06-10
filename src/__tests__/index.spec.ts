@@ -15,6 +15,11 @@ describe('index', () => {
             "getBaseESLint": [Function],
           },
         },
+        "stylelint": Object {
+          "base": Object {
+            "getBase": [Function],
+          },
+        },
       }
     `)
   })

@@ -1,6 +1,10 @@
 /** @type {import("stylelint").Config } */
 
-const { getBase } = require('./dist/src/stylelint/base')
+const {
+  stylelint: {
+    base: { getBase },
+  },
+} = require('@unikum/base-nodejs')
 
 const configBase = getBase()
 

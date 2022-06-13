@@ -669,7 +669,7 @@ describe('eslint base', () => {
 
   describe('linter', () => {
     describe('errors', () => {
-      it.concurrent('when errors are present', async () => {
+      it('when errors are present', async () => {
         const eslint = new ESLint()
         const results = await eslint.lintFiles([
           join(paths.dir.fixtures, 'error/1.ts.fixture'),

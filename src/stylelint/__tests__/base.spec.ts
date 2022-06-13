@@ -23,7 +23,7 @@ describe('stylelint', () => {
   }
 
   describe('getBase', () => {
-    it('config', () => {
+    it.concurrent('config', () => {
       expect(getBase()).toMatchInlineSnapshot(`
         Object {
           "defaultSeverity": "error",
@@ -55,7 +55,7 @@ describe('stylelint', () => {
   })
 
   describe('lint ok', () => {
-    it.concurrent('no errors, file path', async () => {
+    it('no errors, file path', async () => {
       const { errored } = await stylelint.lint({
         ...stateLocal.configLintBase,
         files: [join(paths.dirs.fixtures, 'example-1/main.scss')],
@@ -64,7 +64,7 @@ describe('stylelint', () => {
       expect(errored).toEqual(false)
     })
 
-    it.concurrent('no errors, getBase', async () => {
+    it('no errors, getBase', async () => {
       const { errored } = await stylelint.lint({
         ...stateLocal.configLintBase,
         config: getBase(),
@@ -77,7 +77,7 @@ describe('stylelint', () => {
   })
 
   describe('lint not ok', () => {
-    it.concurrent('error', async () => {
+    it('error', async () => {
       const { errored } = await stylelint.lint({
         ...stateLocal.configLintBase,
         config: getBase(),

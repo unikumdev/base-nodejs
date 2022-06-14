@@ -62,7 +62,7 @@ describe('stylelint', () => {
       })
 
       expect(errored).toEqual(false)
-    })
+    }, 30000)
 
     it('no errors, getBase', async () => {
       const { errored } = await stylelint.lint({
@@ -73,7 +73,7 @@ describe('stylelint', () => {
       })
 
       expect(errored).toEqual(false)
-    })
+    }, 30000)
   })
 
   describe('lint not ok', () => {
@@ -86,6 +86,6 @@ describe('stylelint', () => {
       })
 
       expect(errored).toEqual(true)
-    })
+    }, 30000)
   })
 })

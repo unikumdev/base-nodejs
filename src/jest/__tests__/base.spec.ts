@@ -24,73 +24,7 @@ describe('jest base', () => {
   describe('getBase', () => {
     describe('options', () => {
       it.concurrent('absent', () => {
-        expect(filterConfigResults(theModule.getBase())).toMatchInlineSnapshot(`
-          Object {
-            "coveragePathIgnorePatterns": Array [
-              "<rootDir>/build/",
-              "<rootDir>/dist/",
-            ],
-            "coverageReporters": Array [
-              "html-spa",
-              "lcov",
-            ],
-            "extensionsToTreatAsEsm": Array [
-              ".ts",
-              ".tsx",
-            ],
-            "moduleFileExtensions": Array [
-              "cjs",
-              "js",
-              "json",
-              "jsx",
-              "mjs",
-              "node",
-              "ts",
-              "tsx",
-              "wasm",
-            ],
-            "moduleNameMapper": Object {
-              "@this/(.*)": "<rootDir>",
-              "\\\\.(css|less|scss|sss|styl|sass)$": "<rootDir>/node_modules/identity-obj-proxy",
-              "^(\\\\.{1,2}/.*)\\\\.js$": "$1",
-            },
-            "rootDir": undefined,
-            "testEnvironment": "node",
-            "testMatch": Array [
-              "**/__tests__/**/*.spec.[t]s?(x)",
-            ],
-            "transform": Object {
-              "^.+\\\\.(t|j)sx?$": Array [
-                "@swc/jest",
-                Object {
-                  "jsc": Object {
-                    "baseUrl": undefined,
-                    "externalHelpers": true,
-                    "parser": Object {
-                      "decorators": false,
-                      "dynamicImport": true,
-                      "syntax": "typescript",
-                      "tsx": false,
-                    },
-                    "paths": undefined,
-                    "target": "es2021",
-                    "transform": Object {
-                      "decoratorMetadata": false,
-                      "legacyDecorator": false,
-                      "react": Object {
-                        "runtime": "automatic",
-                      },
-                    },
-                  },
-                  "module": Object {
-                    "type": "es6",
-                  },
-                  "sourceMaps": true,
-                },
-              ],
-            },
-          }
-        `)
+        expect(filterConfigResults(theModule.getBase())).toMatchSnapshot()
       })
 
       describe('pathFileTSConfig', () => {
@@ -104,73 +38,7 @@ describe('jest base', () => {
                 pathFileTSConfig,
               }),
             ),
-          ).toMatchInlineSnapshot(`
-            Object {
-              "coveragePathIgnorePatterns": Array [
-                "<rootDir>/build/",
-                "<rootDir>/dist/",
-              ],
-              "coverageReporters": Array [
-                "html-spa",
-                "lcov",
-              ],
-              "extensionsToTreatAsEsm": Array [
-                ".ts",
-                ".tsx",
-              ],
-              "moduleFileExtensions": Array [
-                "cjs",
-                "js",
-                "json",
-                "jsx",
-                "mjs",
-                "node",
-                "ts",
-                "tsx",
-                "wasm",
-              ],
-              "moduleNameMapper": Object {
-                "@this/(.*)": "<rootDir>",
-                "\\\\.(css|less|scss|sss|styl|sass)$": "<rootDir>/node_modules/identity-obj-proxy",
-                "^(\\\\.{1,2}/.*)\\\\.js$": "$1",
-              },
-              "rootDir": undefined,
-              "testEnvironment": "node",
-              "testMatch": Array [
-                "**/__tests__/**/*.spec.[t]s?(x)",
-              ],
-              "transform": Object {
-                "^.+\\\\.(t|j)sx?$": Array [
-                  "@swc/jest",
-                  Object {
-                    "jsc": Object {
-                      "baseUrl": undefined,
-                      "externalHelpers": true,
-                      "parser": Object {
-                        "decorators": false,
-                        "dynamicImport": true,
-                        "syntax": "typescript",
-                        "tsx": false,
-                      },
-                      "paths": undefined,
-                      "target": "es2021",
-                      "transform": Object {
-                        "decoratorMetadata": false,
-                        "legacyDecorator": false,
-                        "react": Object {
-                          "runtime": "automatic",
-                        },
-                      },
-                    },
-                    "module": Object {
-                      "type": "es6",
-                    },
-                    "sourceMaps": true,
-                  },
-                ],
-              },
-            }
-          `)
+          ).toMatchSnapshot()
           return cleanup()
         })
 
@@ -189,73 +57,7 @@ describe('jest base', () => {
           ;((result.transform || {})[keyFirstTransform][1] as any).jsc.paths =
             undefined
 
-          expect(filterConfigResults(result)).toMatchInlineSnapshot(`
-            Object {
-              "coveragePathIgnorePatterns": Array [
-                "<rootDir>/build/",
-                "<rootDir>/dist/",
-              ],
-              "coverageReporters": Array [
-                "html-spa",
-                "lcov",
-              ],
-              "extensionsToTreatAsEsm": Array [
-                ".ts",
-                ".tsx",
-              ],
-              "moduleFileExtensions": Array [
-                "cjs",
-                "js",
-                "json",
-                "jsx",
-                "mjs",
-                "node",
-                "ts",
-                "tsx",
-                "wasm",
-              ],
-              "moduleNameMapper": Object {
-                "@this/(.*)": "<rootDir>",
-                "\\\\.(css|less|scss|sss|styl|sass)$": "<rootDir>/node_modules/identity-obj-proxy",
-                "^(\\\\.{1,2}/.*)\\\\.js$": "$1",
-              },
-              "rootDir": undefined,
-              "testEnvironment": "node",
-              "testMatch": Array [
-                "**/__tests__/**/*.spec.[t]s?(x)",
-              ],
-              "transform": Object {
-                "^.+\\\\.(t|j)sx?$": Array [
-                  "@swc/jest",
-                  Object {
-                    "jsc": Object {
-                      "baseUrl": ".",
-                      "externalHelpers": true,
-                      "parser": Object {
-                        "decorators": false,
-                        "dynamicImport": true,
-                        "syntax": "typescript",
-                        "tsx": true,
-                      },
-                      "paths": undefined,
-                      "target": "es2021",
-                      "transform": Object {
-                        "decoratorMetadata": false,
-                        "legacyDecorator": false,
-                        "react": Object {
-                          "runtime": "automatic",
-                        },
-                      },
-                    },
-                    "module": Object {
-                      "type": "es6",
-                    },
-                    "sourceMaps": true,
-                  },
-                ],
-              },
-            }
-          `)
+          expect(filterConfigResults(result)).toMatchSnapshot()
         })
       })
     })

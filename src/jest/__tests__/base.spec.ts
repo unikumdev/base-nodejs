@@ -2,10 +2,11 @@
 import { join } from 'path'
 
 import { file } from 'tmp-promise'
+import { describe, expect, it } from 'vitest'
 
 import * as theModule from '@this/src/jest/base'
 
-describe('jest base', () => {
+describe.concurrent('jest base', () => {
   const defaults = {
     paths: {
       dirs: {
@@ -21,17 +22,17 @@ describe('jest base', () => {
     return x
   }
 
-  describe('getBase', () => {
-    describe('options', () => {
+  describe.concurrent('getBase', () => {
+    describe.concurrent('options', () => {
       it.concurrent('absent', () => {
         expect(filterConfigResults(theModule.getBase())).toMatchSnapshot()
       })
 
-      describe('pathFileTSConfig', () => {
-        it.concurrent('provided (fake file)', async () => {
+      describe.concurrent('pathFileTSConfig', () => {
+        it.concurrent('provided (fake file)', async ({ expect: ex }) => {
           const { cleanup, path: pathFileTSConfig } = await file()
 
-          expect(
+          ex(
             filterConfigResults(
               theModule.getBase({
                 pathDirRoot: defaults.paths.dirs.root,

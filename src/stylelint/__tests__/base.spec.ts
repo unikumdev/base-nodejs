@@ -1,10 +1,11 @@
 import { join } from 'node:path'
 
 import * as stylelint from 'stylelint'
+import { describe, expect, it } from 'vitest'
 
 import { getBase } from '../base'
 
-describe('stylelint', () => {
+describe.concurrent('stylelint', () => {
   const pathRoot = join(__dirname, '../../..')
   const paths = {
     dirs: {
@@ -22,22 +23,22 @@ describe('stylelint', () => {
     } as stylelint.LinterOptions,
   }
 
-  describe('getBase', () => {
+  describe.concurrent('getBase', () => {
     it.concurrent('config', () => {
       expect(getBase()).toMatchInlineSnapshot(`
-        Object {
+        {
           "defaultSeverity": "error",
-          "extends": Array [
+          "extends": [
             "stylelint-config-sass-guidelines",
             "stylelint-config-prettier-scss",
           ],
-          "overrides": Array [],
-          "plugins": Array [],
-          "rules": Object {
-            "declaration-empty-line-before": Array [
+          "overrides": [],
+          "plugins": [],
+          "rules": {
+            "declaration-empty-line-before": [
               "always",
-              Object {
-                "ignore": Array [
+              {
+                "ignore": [
                   "after-comment",
                   "after-declaration",
                   "first-nested",
@@ -54,7 +55,7 @@ describe('stylelint', () => {
     })
   })
 
-  describe('lint ok', () => {
+  describe.concurrent('lint ok', () => {
     it('no errors, file path', async () => {
       const { errored } = await stylelint.lint({
         ...stateLocal.configLintBase,
@@ -76,7 +77,7 @@ describe('stylelint', () => {
     }, 30000)
   })
 
-  describe('lint not ok', () => {
+  describe.concurrent('lint not ok', () => {
     it('error', async () => {
       const { errored } = await stylelint.lint({
         ...stateLocal.configLintBase,

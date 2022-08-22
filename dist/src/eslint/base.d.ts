@@ -27,6 +27,7 @@ export declare const getBaseESLint: <T1 extends {
     readonly pathFileTSConfig: string;
 } & {
     readonly pathDirRoot: string;
+    readonly withJestConfig?: boolean | undefined;
 }>(options: T1) => {
     env: {
         es2021: boolean;

@@ -1,6 +1,8 @@
+import { describe, expect, it } from 'vitest'
+
 import { nodeModuleIsAvailable } from '../moduleExists'
 
-describe(nodeModuleIsAvailable.name, () => {
+describe.concurrent(nodeModuleIsAvailable.name, () => {
   it.concurrent('exists', () => {
     expect(nodeModuleIsAvailable('fs')).toEqual(true)
   })

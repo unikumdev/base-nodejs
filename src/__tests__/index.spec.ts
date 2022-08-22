@@ -1,22 +1,24 @@
+import { describe, expect, it } from 'vitest'
+
 import * as theModule from '@this/src/index'
 
 describe('index', () => {
   it.concurrent('has no errors', () => {
     expect(theModule).toMatchInlineSnapshot(`
-      Object {
-        "Jest": Object {
-          "base": Object {
+      {
+        "Jest": {
+          "base": {
             "getBase": [Function],
           },
         },
-        "eslint": Object {
-          "base": Object {
+        "eslint": {
+          "base": {
             "getBase": [Function],
             "getBaseESLint": [Function],
           },
         },
-        "stylelint": Object {
-          "base": Object {
+        "stylelint": {
+          "base": {
             "getBase": [Function],
           },
         },

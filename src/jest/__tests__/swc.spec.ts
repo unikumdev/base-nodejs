@@ -1,4 +1,6 @@
-describe('swc configuration', () => {
+import { describe, expect, it } from 'vitest'
+
+describe.concurrent('swc configuration', () => {
   it.concurrent('jsc.paths config', () =>
     expect(
       import('@this/src/jest/__tests__/fixtures/class2'),

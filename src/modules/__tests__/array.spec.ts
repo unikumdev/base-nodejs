@@ -1,7 +1,9 @@
+import { describe, expect, it } from 'vitest'
+
 import { returnArray, toArray } from '@this/src/modules/array'
 
-describe('array utils', () => {
-  describe(returnArray.name, () => {
+describe.concurrent('array utils', () => {
+  describe.concurrent(returnArray.name, () => {
     it.concurrent('return empty array if not an array', () => {
       ;['', 0, {}, null, undefined].forEach((x) => {
         expect(returnArray(x as any)).toEqual([])
@@ -15,7 +17,7 @@ describe('array utils', () => {
     })
   })
 
-  describe(toArray.name, () => {
+  describe.concurrent(toArray.name, () => {
     it.concurrent('converts payloads to array', () => {
       ;[undefined, null, {}, {}, 1, '1'].forEach((x) => {
         expect(toArray(x)).toEqual([x])

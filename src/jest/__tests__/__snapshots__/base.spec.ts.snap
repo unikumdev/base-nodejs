@@ -1,20 +1,20 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[` 1`] = `
-Object {
-  "coveragePathIgnorePatterns": Array [
+exports[`jest base > getBase > options > absent 1`] = `
+{
+  "coveragePathIgnorePatterns": [
     "<rootDir>/build/",
     "<rootDir>/dist/",
   ],
-  "coverageReporters": Array [
+  "coverageReporters": [
     "html-spa",
     "lcov",
   ],
-  "extensionsToTreatAsEsm": Array [
+  "extensionsToTreatAsEsm": [
     ".ts",
     ".tsx",
   ],
-  "moduleFileExtensions": Array [
+  "moduleFileExtensions": [
     "cjs",
     "js",
     "json",
@@ -25,24 +25,24 @@ Object {
     "tsx",
     "wasm",
   ],
-  "moduleNameMapper": Object {
+  "moduleNameMapper": {
     "@this/(.*)": "<rootDir>",
     "\\\\.(css|less|scss|sss|styl|sass)$": "<rootDir>/node_modules/identity-obj-proxy",
     "^(\\\\.{1,2}/.*)\\\\.js$": "$1",
   },
   "rootDir": undefined,
   "testEnvironment": "node",
-  "testMatch": Array [
+  "testMatch": [
     "**/__tests__/**/*.spec.[t]s?(x)",
   ],
-  "transform": Object {
-    "^.+\\\\.(t|j)sx?$": Array [
+  "transform": {
+    "^.+\\\\.(t|j)sx?$": [
       "@swc/jest",
-      Object {
-        "jsc": Object {
+      {
+        "jsc": {
           "baseUrl": undefined,
           "externalHelpers": true,
-          "parser": Object {
+          "parser": {
             "decorators": false,
             "dynamicImport": true,
             "syntax": "typescript",
@@ -50,15 +50,15 @@ Object {
           },
           "paths": undefined,
           "target": "es2021",
-          "transform": Object {
+          "transform": {
             "decoratorMetadata": false,
             "legacyDecorator": false,
-            "react": Object {
+            "react": {
               "runtime": "automatic",
             },
           },
         },
-        "module": Object {
+        "module": {
           "type": "es6",
         },
         "sourceMaps": true,
@@ -68,21 +68,21 @@ Object {
 }
 `;
 
-exports[` 2`] = `
-Object {
-  "coveragePathIgnorePatterns": Array [
+exports[`jest base > getBase > options > pathFileTSConfig > provided (fake file) 1`] = `
+{
+  "coveragePathIgnorePatterns": [
     "<rootDir>/build/",
     "<rootDir>/dist/",
   ],
-  "coverageReporters": Array [
+  "coverageReporters": [
     "html-spa",
     "lcov",
   ],
-  "extensionsToTreatAsEsm": Array [
+  "extensionsToTreatAsEsm": [
     ".ts",
     ".tsx",
   ],
-  "moduleFileExtensions": Array [
+  "moduleFileExtensions": [
     "cjs",
     "js",
     "json",
@@ -93,24 +93,92 @@ Object {
     "tsx",
     "wasm",
   ],
-  "moduleNameMapper": Object {
+  "moduleNameMapper": {
     "@this/(.*)": "<rootDir>",
     "\\\\.(css|less|scss|sss|styl|sass)$": "<rootDir>/node_modules/identity-obj-proxy",
     "^(\\\\.{1,2}/.*)\\\\.js$": "$1",
   },
   "rootDir": undefined,
   "testEnvironment": "node",
-  "testMatch": Array [
+  "testMatch": [
     "**/__tests__/**/*.spec.[t]s?(x)",
   ],
-  "transform": Object {
-    "^.+\\\\.(t|j)sx?$": Array [
+  "transform": {
+    "^.+\\\\.(t|j)sx?$": [
       "@swc/jest",
-      Object {
-        "jsc": Object {
+      {
+        "jsc": {
+          "baseUrl": undefined,
+          "externalHelpers": true,
+          "parser": {
+            "decorators": false,
+            "dynamicImport": true,
+            "syntax": "typescript",
+            "tsx": false,
+          },
+          "paths": undefined,
+          "target": "es2021",
+          "transform": {
+            "decoratorMetadata": false,
+            "legacyDecorator": false,
+            "react": {
+              "runtime": "automatic",
+            },
+          },
+        },
+        "module": {
+          "type": "es6",
+        },
+        "sourceMaps": true,
+      },
+    ],
+  },
+}
+`;
+
+exports[`jest base > getBase > options > pathFileTSConfig > real file 1`] = `
+{
+  "coveragePathIgnorePatterns": [
+    "<rootDir>/build/",
+    "<rootDir>/dist/",
+  ],
+  "coverageReporters": [
+    "html-spa",
+    "lcov",
+  ],
+  "extensionsToTreatAsEsm": [
+    ".ts",
+    ".tsx",
+  ],
+  "moduleFileExtensions": [
+    "cjs",
+    "js",
+    "json",
+    "jsx",
+    "mjs",
+    "node",
+    "ts",
+    "tsx",
+    "wasm",
+  ],
+  "moduleNameMapper": {
+    "@this/(.*)": "<rootDir>",
+    "\\\\.(css|less|scss|sss|styl|sass)$": "<rootDir>/node_modules/identity-obj-proxy",
+    "^(\\\\.{1,2}/.*)\\\\.js$": "$1",
+  },
+  "rootDir": undefined,
+  "testEnvironment": "node",
+  "testMatch": [
+    "**/__tests__/**/*.spec.[t]s?(x)",
+  ],
+  "transform": {
+    "^.+\\\\.(t|j)sx?$": [
+      "@swc/jest",
+      {
+        "jsc": {
           "baseUrl": ".",
           "externalHelpers": true,
-          "parser": Object {
+          "parser": {
             "decorators": false,
             "dynamicImport": true,
             "syntax": "typescript",
@@ -118,83 +186,15 @@ Object {
           },
           "paths": undefined,
           "target": "es2021",
-          "transform": Object {
+          "transform": {
             "decoratorMetadata": false,
             "legacyDecorator": false,
-            "react": Object {
+            "react": {
               "runtime": "automatic",
             },
           },
         },
-        "module": Object {
-          "type": "es6",
-        },
-        "sourceMaps": true,
-      },
-    ],
-  },
-}
-`;
-
-exports[`jest base getBase options pathFileTSConfig provided (fake file) 1`] = `
-Object {
-  "coveragePathIgnorePatterns": Array [
-    "<rootDir>/build/",
-    "<rootDir>/dist/",
-  ],
-  "coverageReporters": Array [
-    "html-spa",
-    "lcov",
-  ],
-  "extensionsToTreatAsEsm": Array [
-    ".ts",
-    ".tsx",
-  ],
-  "moduleFileExtensions": Array [
-    "cjs",
-    "js",
-    "json",
-    "jsx",
-    "mjs",
-    "node",
-    "ts",
-    "tsx",
-    "wasm",
-  ],
-  "moduleNameMapper": Object {
-    "@this/(.*)": "<rootDir>",
-    "\\\\.(css|less|scss|sss|styl|sass)$": "<rootDir>/node_modules/identity-obj-proxy",
-    "^(\\\\.{1,2}/.*)\\\\.js$": "$1",
-  },
-  "rootDir": undefined,
-  "testEnvironment": "node",
-  "testMatch": Array [
-    "**/__tests__/**/*.spec.[t]s?(x)",
-  ],
-  "transform": Object {
-    "^.+\\\\.(t|j)sx?$": Array [
-      "@swc/jest",
-      Object {
-        "jsc": Object {
-          "baseUrl": undefined,
-          "externalHelpers": true,
-          "parser": Object {
-            "decorators": false,
-            "dynamicImport": true,
-            "syntax": "typescript",
-            "tsx": false,
-          },
-          "paths": undefined,
-          "target": "es2021",
-          "transform": Object {
-            "decoratorMetadata": false,
-            "legacyDecorator": false,
-            "react": Object {
-              "runtime": "automatic",
-            },
-          },
-        },
-        "module": Object {
+        "module": {
           "type": "es6",
         },
         "sourceMaps": true,

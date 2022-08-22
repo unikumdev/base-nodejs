@@ -1,6 +1,8 @@
 import { readFile, unlink } from 'fs/promises'
 import { join } from 'path'
 
+import { afterEach, describe, expect, it } from 'vitest'
+
 import { LCOVFix as TheModule } from '@this/src/jest/lcovFix'
 
 describe(TheModule.name, () => {

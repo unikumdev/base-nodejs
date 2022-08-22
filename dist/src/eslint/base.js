@@ -175,11 +175,16 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
 exports.getBase = getBase;
 /* istanbul ignore next */
 const getBaseESLint = (options) => {
+    const { withJestConfig = true } = options;
     /* istanbul ignore next */
     const baseConfig = (0, exports.getBase)(options);
     // eslint-disable-next-line import/no-dynamic-require, global-require
     const packageJSON = require((0, node_path_1.join)(options.pathDirRoot, 'package.json'));
-    if (packageJSON.devDependencies?.jest) {
+    const hasJestDevDependency = Boolean(packageJSON.devDependencies?.jest);
+    if (withJestConfig && !hasJestDevDependency) {
+        throw new Error('jest is not installed as devdependency');
+    }
+    if (hasJestDevDependency) {
         return {
             ...baseConfig,
             env: {

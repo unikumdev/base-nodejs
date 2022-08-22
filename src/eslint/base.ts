@@ -184,10 +184,12 @@ export const getBase = ({
 export const getBaseESLint = <
   T1 extends Parameters<typeof getBase>[0] & {
     readonly pathDirRoot: string
+    readonly withJestConfig?: boolean
   },
 >(
   options: T1,
 ) => {
+  const { withJestConfig = true } = options
   /* istanbul ignore next */
   const baseConfig = getBase(options)
 
@@ -198,7 +200,13 @@ export const getBaseESLint = <
     }
   }
 
-  if (packageJSON.devDependencies?.jest) {
+  const hasJestDevDependency = Boolean(packageJSON.devDependencies?.jest)
+
+  if (withJestConfig && !hasJestDevDependency) {
+    throw new Error('jest is not installed as devdependency')
+  }
+
+  if (hasJestDevDependency) {
     return {
       ...baseConfig,
       env: {

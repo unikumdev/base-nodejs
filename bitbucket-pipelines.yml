@@ -1,5 +1,5 @@
 # Check our guides at https://confluence.atlassian.com/x/14UWN for more examples.
-image: node:16-alpine
+image: docker.io/node:lts-alpine
 
 definitions:
   caches:
@@ -22,7 +22,7 @@ pipelines:
           - apk add --quiet --virtual os_installations tzdata
           - cp /usr/share/zoneinfo/Europe/Stockholm /etc/localtime && echo "Europe/Stockholm" > /etc/timezone
           - npm run build
-          - npm run test:coverage
+          - npm run test:CI
         artifacts:
           - 'node_modules/**'
           - '/var/cache/apk/**'

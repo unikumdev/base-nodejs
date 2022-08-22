@@ -15,7 +15,8 @@
     "./build**/**/*",
     "./dist**/**/*",
     "./jest.config.ts",
-    "./coverage/**/*"
+    "./coverage/**/*",
+    "./vitest.config.ts"
   ],
   "extends": "./tsconfig.json"
 }

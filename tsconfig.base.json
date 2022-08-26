@@ -1,17 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@tsconfig/node16/tsconfig.json",
+  "extends": "@tsconfig/node18-strictest-esm/tsconfig.json",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "declaration": true,
     "importHelpers": true,
     "isolatedModules": false,
-    "moduleResolution": "Node",
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "resolveJsonModule": true,
     "plugins": [
       {

@@ -17,12 +17,12 @@ pipelines:
         script:
           - apk update --quiet && apk upgrade --quiet
           - apk add --quiet --virtual node_installations build-base python3 py3-pip
-          - npm -g i npm@latest && npm i --loglevel warn
-          - npm audit fix || true
+          - npm -g i pnpm@latest && pnpm i --loglevel warn
+          - pnpm audit fix || true
           - apk add --quiet --virtual os_installations tzdata
           - cp /usr/share/zoneinfo/Europe/Stockholm /etc/localtime && echo "Europe/Stockholm" > /etc/timezone
-          - npm run build
-          - npm run test:CI
+          - pnpm run build
+          - pnpm run test:CI
         artifacts:
           - 'node_modules/**'
           - '/var/cache/apk/**'

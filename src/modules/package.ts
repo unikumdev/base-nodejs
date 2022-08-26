@@ -37,8 +37,11 @@ export class Package {
       if (valuePeerDependency) {
         const valueNormalOrDevDependency = allDependencies[k]
 
-        if (valuePeerDependency !== valueNormalOrDevDependency) {
-          contentParsed.peerDependencies[k] = allDependencies[k]
+        if (
+          valueNormalOrDevDependency &&
+          valuePeerDependency !== valueNormalOrDevDependency
+        ) {
+          contentParsed.peerDependencies[k] = valueNormalOrDevDependency
           // eslint-disable-next-line no-console
           console.info(
             `updated: ${valuePeerDependency} => ${valueNormalOrDevDependency}`,

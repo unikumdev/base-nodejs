@@ -1,5 +1,3 @@
-import { join } from 'node:path'
-
 import type { Linter } from 'eslint'
 
 export const getBase = ({
@@ -75,6 +73,7 @@ export const getBase = ({
         },
       ],
       'eol-last': 'error',
+
       'import/order': [
         'error',
         {
@@ -184,40 +183,12 @@ export const getBase = ({
 export const getBaseESLint = <
   T1 extends Parameters<typeof getBase>[0] & {
     readonly pathDirRoot: string
-    readonly withJestConfig?: boolean
   },
 >(
   options: T1,
 ) => {
-  const { withJestConfig = true } = options
   /* istanbul ignore next */
   const baseConfig = getBase(options)
-
-  // eslint-disable-next-line import/no-dynamic-require, global-require
-  const packageJSON = require(join(options.pathDirRoot, 'package.json')) as {
-    readonly devDependencies?: {
-      readonly [x: string]: string
-    }
-  }
-
-  const hasJestDevDependency = Boolean(packageJSON.devDependencies?.jest)
-
-  if (withJestConfig && !hasJestDevDependency) {
-    throw new Error('jest is not installed as devdependency')
-  }
-
-  if (hasJestDevDependency) {
-    return {
-      ...baseConfig,
-      env: {
-        ...baseConfig.env,
-        jest: true,
-        'jest/globals': true,
-      },
-
-      extends: [...baseConfig.extends, 'plugin:jest/recommended'],
-    }
-  }
 
   /* istanbul ignore next */
   return baseConfig

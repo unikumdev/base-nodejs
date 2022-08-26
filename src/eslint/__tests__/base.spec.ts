@@ -13,7 +13,7 @@ const paths = {
   },
 }
 
-describe('eslint base', () => {
+describe.concurrent('eslint base', () => {
   const pathFileTSConfigValid = join(paths.dir.root, 'tsconfig.json')
   const filterConfigResults = (
     x:
@@ -30,7 +30,7 @@ describe('eslint base', () => {
     return x
   }
 
-  describe('getBase', () => {
+  describe.concurrent('getBase', () => {
     it.concurrent('returns config', ({ expect: ex }) => {
       ex(
         filterConfigResults(
@@ -51,7 +51,7 @@ describe('eslint base', () => {
     })
   })
 
-  describe('getBaseJest', () => {
+  describe.concurrent('getBaseESLint', () => {
     it.concurrent('returns config', ({ expect: ex }) => {
       ex(
         filterConfigResults(
@@ -62,33 +62,11 @@ describe('eslint base', () => {
         ),
       ).toMatchSnapshot()
     })
-
-    it.concurrent('no jest config', ({ expect: ex }) => {
-      ex(
-        filterConfigResults(
-          theModule.getBaseESLint({
-            pathDirRoot: paths.dir.root,
-            pathFileTSConfig: pathFileTSConfigValid,
-            withJestConfig: false,
-          }),
-        ),
-      ).toMatchSnapshot()
-    })
-
-    it.concurrent('no jest config and no installed jest', () => {
-      expect(() => {
-        theModule.getBaseESLint({
-          pathDirRoot: join(paths.dir.fixtures, 'root-package-json-no-jest'),
-          pathFileTSConfig: pathFileTSConfigValid,
-          withJestConfig: true,
-        })
-      }).toThrowError('jest is not installed as devdependency')
-    })
   })
 
   describe.concurrent('linter', () => {
     describe.concurrent('errors', () => {
-      it.concurrent('when errors are present', async () => {
+      it('when errors are present', async () => {
         const eslint = new ESLint()
         const results = await eslint.lintFiles([
           join(paths.dir.fixtures, 'error/1.ts.fixture'),

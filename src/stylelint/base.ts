@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import * as stylelint from 'stylelint'
+import type * as stylelint from 'stylelint'
 
 export const getBase = (): stylelint.Config => ({
   defaultSeverity: 'error',

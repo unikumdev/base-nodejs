@@ -12,7 +12,7 @@ describe.concurrent('stylelint', () => {
       fixtures: join(__dirname, 'fixtures'),
     },
     files: {
-      stylelintRC: join(pathRoot, '.stylelintrc.js'),
+      stylelintRC: join(pathRoot, '.stylelintrc.cjs'),
     },
   }
 
@@ -56,37 +56,49 @@ describe.concurrent('stylelint', () => {
   })
 
   describe.concurrent('lint ok', () => {
-    it('no errors, file path', async () => {
-      const { errored } = await stylelint.lint({
-        ...stateLocal.configLintBase,
-        files: [join(paths.dirs.fixtures, 'example-1/main.scss')],
-      })
+    it.concurrent(
+      'no errors, file path',
+      async () => {
+        const { errored } = await stylelint.lint({
+          ...stateLocal.configLintBase,
+          files: [join(paths.dirs.fixtures, 'example-1/main.scss')],
+        })
 
-      expect(errored).toEqual(false)
-    }, 30000)
+        expect(errored).toEqual(false)
+      },
+      30000,
+    )
 
-    it('no errors, getBase', async () => {
-      const { errored } = await stylelint.lint({
-        ...stateLocal.configLintBase,
-        config: getBase(),
-        configFile: undefined,
-        files: [join(paths.dirs.fixtures, 'example-1/main.scss')],
-      })
+    it.concurrent(
+      'no errors, getBase',
+      async () => {
+        const { errored } = await stylelint.lint({
+          ...stateLocal.configLintBase,
+          config: getBase(),
+          configFile: undefined as any,
+          files: [join(paths.dirs.fixtures, 'example-1/main.scss')],
+        })
 
-      expect(errored).toEqual(false)
-    }, 30000)
+        expect(errored).toEqual(false)
+      },
+      30000,
+    )
   })
 
   describe.concurrent('lint not ok', () => {
-    it('error', async () => {
-      const { errored } = await stylelint.lint({
-        ...stateLocal.configLintBase,
-        config: getBase(),
-        configFile: undefined,
-        files: [join(paths.dirs.fixtures, 'example-1/plugin/flickity.scss')],
-      })
+    it.concurrent(
+      'error',
+      async () => {
+        const { errored } = await stylelint.lint({
+          ...stateLocal.configLintBase,
+          config: getBase(),
+          configFile: undefined as any,
+          files: [join(paths.dirs.fixtures, 'example-1/plugin/flickity.scss')],
+        })
 
-      expect(errored).toEqual(true)
-    }, 30000)
+        expect(errored).toEqual(true)
+      },
+      30000,
+    )
   })
 })

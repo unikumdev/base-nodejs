@@ -1,6 +1,6 @@
 {
   "name": "@unikum/base-nodejs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "b1se necessities for a nodejs typescript project",
   "publishConfig": {
     "registry": "https://nexus.unikum.us/repository/unikum-npm"
@@ -10,12 +10,6 @@
   },
   "main": "dist/cjs/src/index.js",
   "module": "dist/esm/src/index.js",
-  "exports": {
-    ".": {
-      "import": "./dist/esm/src/index.js",
-      "require": "./dist/cjs/src/index.js"
-    }
-  },
   "type": "module",
   "scripts": {
     "build": "concurrently 'tsc -p tsconfig.build.json' 'tsc -p tsconfig.build-cjs.json' && cp -r ./internals/dist ./",

@@ -1,7 +1,7 @@
 {
   "name": "@unikum/base-nodejs",
-  "version": "1.0.10",
-  "description": "b1se necessities for a nodejs typescript project",
+  "version": "1.0.11",
+  "description": "base necessities for a nodejs typescript project",
   "publishConfig": {
     "registry": "https://nexus.unikum.us/repository/unikum-npm"
   },
@@ -12,7 +12,7 @@
   "module": "dist/esm/src/index.js",
   "type": "module",
   "scripts": {
-    "build": "concurrently 'tsc -p tsconfig.build.json' 'tsc -p tsconfig.build-cjs.json' && cp -r ./internals/dist ./ && ts-node-esm ./internals/ts-patch.ts --dir-target='./dist' --dir-project=./",
+    "build": "concurrently 'tsc -p tsconfig.build.json' 'tsc -p tsconfig.build-cjs.json' && cp -r ./internals/dist ./ && concurrently 'ts-node-esm ./internals/ts-patch.ts --dir-target='./dist/cjs' --dir-project=./' 'ts-node-esm ./internals/ts-patch.ts --dir-target='./dist/esm' --dir-project=./'",
     "lint": "eslint . --fix",
     "prepare:release": "concurrently 'npm run test:coverage' 'npm run lint' 'npm run build'",
     "setup:project": "ts-node ./internals/setup-project.ts",
@@ -35,6 +35,7 @@
     "@types/fs-extra": "^9.0.13",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
+    "@types/yargs-parser": "^21.0.0",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
     "@vitest/coverage-c8": "^0.25.3",
@@ -49,6 +50,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-sort": "^2.4.0",
+    "espree": "^9.4.1",
+    "get-tsconfig": "^4.2.0",
     "happy-dom": "^7.7.0",
     "husky": "^8.0.2",
     "postcss": "^8.4.19",
@@ -63,7 +66,8 @@
     "typescript": "^4.9.3",
     "vite": "^3.2.4",
     "vite-tsconfig-paths": "^3.6.0",
-    "vitest": "^0.25.3"
+    "vitest": "^0.25.3",
+    "yargs-parser": "^21.1.1"
   },
   "peerDependencies": {
     "@swc/core": "^1.3.20",

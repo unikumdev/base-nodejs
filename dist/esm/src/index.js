@@ -1,4 +1,4 @@
-import * as baseESLint from '../../src/eslint/base';
-import * as baseStylelint from '../../src/stylelint/base';
+import * as baseESLint from './eslint/base';
+import * as baseStylelint from './stylelint/base';
 export const eslint = { base: baseESLint };
 export const stylelint = { base: baseStylelint };

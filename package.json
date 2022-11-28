@@ -1,6 +1,6 @@
 {
   "name": "@unikum/base-nodejs",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "base necessities for a nodejs typescript project",
   "publishConfig": {
     "registry": "https://nexus.unikum.us/repository/unikum-npm"

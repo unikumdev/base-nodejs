@@ -121,7 +121,6 @@ class Script {
     };
     static async execute() {
         const { dirTarget } = Script.parseCMDArguments();
-        console.log(dirTarget);
         await Promise.all([Script.tasks.processSource({ dirTarget })]);
     }
 }

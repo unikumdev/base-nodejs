@@ -6,7 +6,7 @@ const path_1 = require("path");
 const import_from_1 = tslib_1.__importDefault(require("import-from"));
 const merge_anything_1 = require("merge-anything");
 const typescript_1 = require("typescript");
-const config_1 = tslib_1.__importDefault(require("@this/src/config"));
+const config_1 = tslib_1.__importDefault(require("../../../src/config"));
 class TSConfig {
     static readTSConfig = (x) => (0, typescript_1.parseConfigFileTextToJson)(
     // eslint-disable-next-line

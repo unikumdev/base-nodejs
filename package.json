@@ -12,7 +12,7 @@
   "module": "dist/esm/src/index.js",
   "type": "module",
   "scripts": {
-    "build": "concurrently 'tsc -p tsconfig.build.json' 'tsc -p tsconfig.build-cjs.json' && cp -r ./internals/dist ./",
+    "build": "concurrently 'tsc -p tsconfig.build.json' 'tsc -p tsconfig.build-cjs.json' && cp -r ./internals/dist ./ && ts-node-esm ./internals/ts-patch.ts --dir-target='./dist' --dir-project=./",
     "lint": "eslint . --fix",
     "prepare:release": "concurrently 'npm run test:coverage' 'npm run lint' 'npm run build'",
     "setup:project": "ts-node ./internals/setup-project.ts",

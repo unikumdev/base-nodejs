@@ -1,9 +1,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
+import { join } from 'node:path'
+
 import PluginTSConfigPaths from 'vite-tsconfig-paths'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
-  plugins: [PluginTSConfigPaths()],
+  plugins: [
+    PluginTSConfigPaths({
+      projects: [join(__dirname, 'tsconfig.json')],
+      root: __dirname,
+    }),
+  ],
   test: {
     coverage: {
       branches: 95,

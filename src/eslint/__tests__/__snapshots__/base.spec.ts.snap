@@ -75,6 +75,8 @@ exports[`eslint base > getBase > option isReact 1`] = `
       },
     ],
     "eol-last": "error",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
     "import/order": [
       "error",
       {
@@ -308,6 +310,8 @@ exports[`eslint base > getBaseESLint > returns config 1`] = `
       },
     ],
     "eol-last": "error",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
     "import/order": [
       "error",
       {

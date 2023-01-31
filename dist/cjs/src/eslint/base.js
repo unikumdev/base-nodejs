@@ -90,6 +90,8 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
                 },
             ],
             'eol-last': 'error',
+            'import/extensions': 'off',
+            'import/no-unresolved': 'off',
             'import/order': [
                 'error',
                 {

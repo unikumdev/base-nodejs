@@ -96,7 +96,8 @@ export const getBase = ({
         },
       ],
       'eol-last': 'error',
-
+      'import/extensions': 'off',
+      'import/no-unresolved': 'off',
       'import/order': [
         'error',
         {

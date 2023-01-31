@@ -8,9 +8,11 @@ export declare const getBase: ({ isReact, pathFileTSConfig, }: {
         node: boolean;
     };
     extends: (string | false | undefined)[];
+    overrides: {
+        files: string[];
+    }[];
     parser: string;
     parserOptions: {
-        extraFileExtensions: string[];
         project: string[];
     };
     plugins: string[];
@@ -33,9 +35,11 @@ export declare const getBaseESLint: <T1 extends {
         node: boolean;
     };
     extends: (string | false | undefined)[];
+    overrides: {
+        files: string[];
+    }[];
     parser: string;
     parserOptions: {
-        extraFileExtensions: string[];
         project: string[];
     };
     plugins: string[];

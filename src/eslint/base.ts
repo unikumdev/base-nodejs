@@ -11,7 +11,6 @@ export const getBase = ({
     ? {
         'react/button-has-type': 'error',
         'react/jsx-newline': ['error', { prevent: false }],
-        'react/jsx-sort-default-props': 'error',
         'react/jsx-sort-props': 'error',
         'react/no-children-prop': 'off',
         'react/no-unused-prop-types': 'error',
@@ -22,6 +21,7 @@ export const getBase = ({
         ],
         'react/self-closing-comp': 'error',
         'react/sort-comp': 'error',
+        'react/sort-default-props': 'error',
         'react/sort-prop-types': 'error',
       }
     : {}
@@ -42,10 +42,33 @@ export const getBase = ({
       'plugin:@typescript-eslint/recommended-requiring-type-checking',
       'plugin:prettier/recommended',
     ].filter(Boolean),
+    overrides: [
+      {
+        files: [
+          '*.ts',
+          '*.mts',
+          '*.cts',
+          '*.tsx',
+          '*.js',
+          '*.jsx',
+          '*.mjs',
+          '*.cjs',
+        ],
+      },
+    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
-      extraFileExtensions: ['.mjs'],
-      project: [pathFileTSConfig, '**/*.js', '**/*.ts'],
+      project: [
+        pathFileTSConfig,
+        '**/*.ts',
+        '**/*.mts',
+        '**/*.cts',
+        '**/*.tsx',
+        '**/*.js',
+        '**/*.jsx',
+        '**/*.mjs',
+        '**/*.cjs',
+      ],
     },
     plugins: ['@typescript-eslint', 'prefer-arrow', 'prettier', 'sort'],
     root: true,

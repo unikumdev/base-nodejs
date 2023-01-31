@@ -15,14 +15,31 @@ exports[`eslint base > getBase > option isReact 1`] = `
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:prettier/recommended",
   ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.mts",
+        "*.cts",
+        "*.tsx",
+        "*.js",
+        "*.jsx",
+        "*.mjs",
+        "*.cjs",
+      ],
+    },
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "extraFileExtensions": [
-      ".mjs",
-    ],
     "project": [
-      "**/*.js",
       "**/*.ts",
+      "**/*.mts",
+      "**/*.cts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.mjs",
+      "**/*.cjs",
     ],
   },
   "plugins": [
@@ -188,7 +205,6 @@ exports[`eslint base > getBase > option isReact 1`] = `
         "prevent": false,
       },
     ],
-    "react/jsx-sort-default-props": "error",
     "react/jsx-sort-props": "error",
     "react/no-children-prop": "off",
     "react/no-unused-prop-types": "error",
@@ -201,6 +217,7 @@ exports[`eslint base > getBase > option isReact 1`] = `
     ],
     "react/self-closing-comp": "error",
     "react/sort-comp": "error",
+    "react/sort-default-props": "error",
     "react/sort-prop-types": "error",
     "semi": [
       "error",
@@ -231,14 +248,31 @@ exports[`eslint base > getBaseESLint > returns config 1`] = `
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:prettier/recommended",
   ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.mts",
+        "*.cts",
+        "*.tsx",
+        "*.js",
+        "*.jsx",
+        "*.mjs",
+        "*.cjs",
+      ],
+    },
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "extraFileExtensions": [
-      ".mjs",
-    ],
     "project": [
-      "**/*.js",
       "**/*.ts",
+      "**/*.mts",
+      "**/*.cts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.mjs",
+      "**/*.cjs",
     ],
   },
   "plugins": [

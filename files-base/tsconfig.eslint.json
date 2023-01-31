@@ -2,13 +2,18 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./tsconfig.json",
   "include": [
-    "**/.*.js",
-    "**/.*.jsx",
+    "**/*.ts",
+    "**/*.mts",
+    "**/*.cts",
+    "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
+    "**/*.mjs",
+    "**/*.cjs",
+    "**/.*.js",
+    "**/.*.cjs",
+    "**/.*.mts",
     "**/.*.ts",
-    "**/.*.tsx",
-    "**/*.ts",
-    "**/*.tsx"
+    "**/.*.tsx"
   ]
 }

@@ -10,7 +10,7 @@ import type * as typeTypeScript from 'typescript'
 
 export class TSConfig {
   static readTSConfig = (
-    x: Parameters<typeof TSConfig['readTSConfigRecursive']>[0],
+    x: Parameters<(typeof TSConfig)['readTSConfigRecursive']>[0],
   ) =>
     parseConfigFileTextToJson(
       // eslint-disable-next-line

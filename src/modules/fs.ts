@@ -5,6 +5,6 @@ export class FS {
     readFile(pathFile).then((x) => x.toString())
 
   static readFileParseJSON = async (
-    x: Parameters<typeof FS['readFileToString']>[0],
+    x: Parameters<(typeof FS)['readFileToString']>[0],
   ) => JSON.parse(await FS.readFileToString(x))
 }

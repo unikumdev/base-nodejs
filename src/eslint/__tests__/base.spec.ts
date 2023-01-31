@@ -17,8 +17,8 @@ describe.concurrent('eslint base', () => {
   const pathFileTSConfigValid = join(paths.dir.root, 'tsconfig.json')
   const filterConfigResults = (
     x:
-      | ReturnType<typeof theModule['getBase']>
-      | ReturnType<typeof theModule['getBaseESLint']>,
+      | ReturnType<(typeof theModule)['getBase']>
+      | ReturnType<(typeof theModule)['getBaseESLint']>,
   ) => {
     // eslint-disable-next-line no-param-reassign
     x.parserOptions.project = x.parserOptions.project.filter(

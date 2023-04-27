@@ -1,5 +1,5 @@
 import { join } from 'path';
-export class Configuration {
+class Configuration {
     static createPathsConfig = ({ pathRoot }) => ({
         dirs: {
             root: pathRoot,
@@ -13,3 +13,4 @@ export class Configuration {
         this.paths = Configuration.createPathsConfig({ pathRoot });
     }
 }
+export { Configuration };

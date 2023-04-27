@@ -174,7 +174,6 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
                 },
                 { blankLine: 'always', next: '*', prev: ['case', 'default'] },
             ],
-            'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
             'prefer-arrow/prefer-arrow-functions': [
                 'error',
                 {
@@ -183,6 +182,7 @@ const getBase = ({ isReact, pathFileTSConfig, }) => {
                     singleReturnOnly: true,
                 },
             ],
+            'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
             'prettier/prettier': 'error',
             quotes: ['error', 'single'],
             semi: ['error', 'never'],

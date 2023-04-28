@@ -2,8 +2,8 @@ import { dirname, resolve } from 'path';
 import importFrom from 'import-from';
 import { merge } from 'merge-anything';
 import { parseConfigFileTextToJson } from 'typescript';
-import config from '@this/src/config';
-class TSConfig {
+import config from "../config";
+export class TSConfig {
     static readTSConfig = (x) => parseConfigFileTextToJson(
     // eslint-disable-next-line
     '' /*'tsconfig.json'*/, JSON.stringify(TSConfig.readTSConfigRecursive(x), undefined, 2)).config;
@@ -25,4 +25,3 @@ class TSConfig {
         return accumulated;
     }
 }
-export { TSConfig };

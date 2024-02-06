@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.63](https://bitbucket.org/unikumdev/base-nodejs/compare/v0.1.62...v0.1.63) (2024-02-06)
+
 ### 0.1.62 (2023-10-12)
 
 ### [0.1.59](https://bitbucket.org/unikumdev/base-nodejs/compare/v0.1.58...v0.1.59) (2022-08-22)

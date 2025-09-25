@@ -18,7 +18,7 @@ write_npmrc
 pnpm install || exit 1
 
 git add .
-git commit -m "chore: changesets automatically updated package versions"
+git commit -m "chore: automatically updated package versions"
 git push
 
-pnpm changeset publish || exit 1
+pnpm publish || exit 1

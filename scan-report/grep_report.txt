@@ -1,0 +1,65 @@
+Git Grep Secret Scan Report - Thu Sep 25 16:37:30 CEST 2025
+Repo: /Users/dagge/Source/base-nodejs
+----------------------------------------
+
+🔎 Pattern: AWS(.{0,20})?(AKIA[0-9A-Z]{16})
+(No matches)
+
+🔎 Pattern: secret(.{0,20})?['"][a-zA-Z0-9\/+=]{8,}['"]
+(No matches)
+
+🔎 Pattern: password(.{0,20})?['"][^'"]{6,}['"]
+(No matches)
+
+🔎 Pattern: api[_-]?key(.{0,20})?["'][a-zA-Z0-9]{8,}["']
+(No matches)
+
+🔎 Pattern: PRIVATE KEY-----
+(No matches)
+
+🔎 Pattern: (?:19|20)?\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[-+]?\d{4}
+(No matches)
+
+🔎 Pattern: (?<!\w)(\+46|0)\s?7[\s-]?\d{3}[\s-]?\d{3}(?!\w)
+(No matches)
+
+🔎 Pattern: ([A-ZÅÄÖa-zåäö]{2,}\s(gatan|vägen|torget|gränd|stigen|allén)\s?\d{0,4})
+(No matches)
+
+🔎 Pattern: \d{3}\s?\d{2}
+src/stylelint/__tests__/base.spec.ts:69:      30000,
+src/stylelint/__tests__/base.spec.ts:84:      30000,
+src/stylelint/__tests__/base.spec.ts:101:      30000,
+
+🔎 Pattern: [A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}
+(No matches)
+
+🔎 Pattern: BEGIN RSA PRIVATE KEY
+(No matches)
+
+🔎 Pattern: -----BEGIN OPENSSH PRIVATE KEY-----
+(No matches)
+
+🔎 Pattern: dependencyTrack
+(No matches)
+
+🔎 Pattern: konfidentiell
+(No matches)
+
+🔎 Pattern: confidential
+(No matches)
+
+🔎 Pattern: unikum intern
+(No matches)
+
+🔎 Pattern: inloggning
+(No matches)
+
+🔎 Pattern: unikum\.us
+package.json:6:    "registry": "https://nexus.unikum.us/repository/unikum-npm"
+
+🔎 Pattern: uniauth
+(No matches)
+
+🔎 Pattern: client_secret(.{0,20})?["'][^"']{8,}["']
+(No matches)

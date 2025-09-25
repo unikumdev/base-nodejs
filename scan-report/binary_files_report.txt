@@ -1,0 +1,4 @@
+🔍 Scanning for binary or document-type files (historical, content-based)...
+Repo: /Users/dagge/Source/base-nodejs
+----------------------------------------
+(No binary or document files detected in history)

@@ -1,0 +1,25 @@
+name: Build and Test
+
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  DOCKER_IMAGE_NAME: unikum/base-nodejs
+  DOCKER_IMAGE_TAG: b${{ github.run_number }}
+
+jobs:
+  setup-build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y build-essential python3 python3-pip tzdata
+          sudo ln -sf /usr/share/zoneinfo/Europe/Stockholm /etc/localtime
+          echo "Europe/Stockholm" | sudo tee /etc/timezone
+      - uses: ./.github/workflows/composites/install_node_things/
+      - run: pnpm audit fix || true
+      - run: pnpm run build
+      - run: pnpm run test:CI
+
